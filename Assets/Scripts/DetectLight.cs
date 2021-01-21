@@ -18,8 +18,6 @@ public class DetectLight : MonoBehaviour
 
     private void Start()
     {
-        //_meshRender = GetComponent<MeshRenderer>();
-        _renderer = GetComponent<Renderer>();
         _inRangeLight = false;
         _inLight = false;
         
