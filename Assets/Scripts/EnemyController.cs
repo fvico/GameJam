@@ -5,12 +5,13 @@ using UnityEngine.AI;
 
 public class EnemyController : MonoBehaviour
 {
+    [SerializeField]
     NavMeshAgent _navMeshAgent;
     [SerializeField]
     Transform _targetPlayer;
     private void Start()
     {
-        GetComponent<NavMeshAgent>();
+       
     }
 
     private void Update()
