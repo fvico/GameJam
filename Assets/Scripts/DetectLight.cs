@@ -41,7 +41,7 @@ public class DetectLight : MonoBehaviour
             {
                 _countToDisolver = _maxDisolver;
             }
-            print(_countToDisolver);
+            //print(_countToDisolver);
             _renderer.material.SetFloat("_Disolver",_countToDisolver);
             _sytemParticles.SetActive(false);
         }

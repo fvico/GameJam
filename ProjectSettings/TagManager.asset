@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Light
   - Enemy
+  - TriggerCambiaAngulos
   layers:
   - Default
   - TransparentFX
