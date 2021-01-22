@@ -13,7 +13,13 @@ public class DetectLight : MonoBehaviour
     GameObject _sytemParticles;
     [SerializeField]
     float _speedToDisolver;
+    [SerializeField]
+    float _minDisolver;
+    [SerializeField]
+    float _maxDisolver;
     float _countToDisolver = -0.7f;
+
+
 
 
     private void Start()
@@ -31,9 +37,9 @@ public class DetectLight : MonoBehaviour
         {
            
             _countToDisolver += Time.deltaTime *_speedToDisolver;
-            if(_countToDisolver > 1)
+            if(_countToDisolver > _maxDisolver)
             {
-                _countToDisolver = 1f;
+                _countToDisolver = _maxDisolver;
             }
             print(_countToDisolver);
             _renderer.material.SetFloat("_Disolver",_countToDisolver);
@@ -43,9 +49,9 @@ public class DetectLight : MonoBehaviour
         {
            
             _countToDisolver -= Time.deltaTime *_speedToDisolver;
-            if(_countToDisolver < -0.7f)
+            if(_countToDisolver < _minDisolver)
             {
-                _countToDisolver = -0.7f;
+                _countToDisolver = _minDisolver;
             }
             _renderer.material.SetFloat("_Disolver", _countToDisolver);
             _sytemParticles.SetActive(true);
