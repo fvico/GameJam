@@ -9,13 +9,50 @@ public class EnemyController : MonoBehaviour
     NavMeshAgent _navMeshAgent;
     [SerializeField]
     Transform _targetPlayer;
+    Vector3 _targetOrigen;
+    [SerializeField]
+    Transform _targetDestino;
+    bool _canPlayerDetect;
     private void Start()
     {
-       
+        _canPlayerDetect = false;
+        _targetOrigen = transform.position;
     }
 
     private void Update()
     {
-        _navMeshAgent.destination = _targetPlayer.position;
+        if (DetectLight._inLight)
+        {
+            if (_canPlayerDetect)
+            {
+                ChangeDestino(_targetPlayer.position);
+            }
+        }
+        else
+        {
+            print("Entro");
+            ChangeDestino(_targetOrigen);
+        }
+        
+    }
+
+    void ChangeDestino(Vector3 destino)
+    {
+        _navMeshAgent.destination = destino;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "Player")
+        {
+            _canPlayerDetect = true;
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            _canPlayerDetect = false;
+        }
     }
 }

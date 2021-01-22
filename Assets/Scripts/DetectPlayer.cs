@@ -23,7 +23,7 @@ public class DetectPlayer : MonoBehaviour
                 if(hit.collider.gameObject.tag == "Player")
                 {
                     DetectLight._inLight = true;
-                    print("detectado");
+                    
                     Debug.DrawRay(transform.position, destino, Color.green);
                 }
                 else
