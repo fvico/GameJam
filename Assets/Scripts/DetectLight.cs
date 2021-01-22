@@ -14,9 +14,9 @@ public class DetectLight : MonoBehaviour
     [SerializeField]
     float _speedToDisolver;
     [SerializeField]
-    float _minDisolver;
+    float _minDisolver = -0.7f;
     [SerializeField]
-    float _maxDisolver;
+    float _maxDisolver =  1.5f;
     float _countToDisolver = -0.7f;
 
 

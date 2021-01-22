@@ -7456,12 +7456,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1912609980}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &1934279406 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 6405305474031258059, guid: c9ab0813eeebe334fb2fe59ce794d4c9,
-    type: 3}
-  m_PrefabInstance: {fileID: 7847096794668982995}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1937118158
 GameObject:
   m_ObjectHideFlags: 0
@@ -8291,6 +8285,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 1513141234452212089, guid: 5f57efa0e3552cf40a14f68bd0277ce9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5f57efa0e3552cf40a14f68bd0277ce9, type: 3}
 --- !u!1001 &7349234810000974547
@@ -8436,8 +8435,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7847096795982084791, guid: c9ab0813eeebe334fb2fe59ce794d4c9,
         type: 3}
-      propertyPath: _renderer
-      value: 
-      objectReference: {fileID: 1934279406}
+      propertyPath: _minDisolver
+      value: -0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7847096795982084791, guid: c9ab0813eeebe334fb2fe59ce794d4c9,
+        type: 3}
+      propertyPath: _maxDisolver
+      value: 1.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9ab0813eeebe334fb2fe59ce794d4c9, type: 3}
