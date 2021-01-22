@@ -12,7 +12,7 @@ public class DetectPlayer : MonoBehaviour
     void Update()
     {
         transform.LookAt(_player.transform);
-        Vector3 destino = transform.TransformDirection(Vector3.forward);
+        Vector3 destino = transform.TransformDirection (Vector3.forward);
         float maxDistance = Vector3.Distance(transform.position, _player.transform.position);
         RaycastHit hit;
 

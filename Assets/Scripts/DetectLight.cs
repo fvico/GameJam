@@ -18,6 +18,7 @@ public class DetectLight : MonoBehaviour
 
     private void Start()
     {
+        MovePlayer._speed = 2;
         _inRangeLight = false;
         _inLight = false;
         
@@ -28,7 +29,7 @@ public class DetectLight : MonoBehaviour
         
         if (_inLight)
         {
-            MovePlayer._speed = 2;
+           
             _countToDisolver += Time.deltaTime *_speedToDisolver;
             if(_countToDisolver > 1)
             {
@@ -40,7 +41,7 @@ public class DetectLight : MonoBehaviour
         }
         else
         {
-            MovePlayer._speed = 10;
+           
             _countToDisolver -= Time.deltaTime *_speedToDisolver;
             if(_countToDisolver < -0.7f)
             {
@@ -55,6 +56,7 @@ public class DetectLight : MonoBehaviour
     {
         if(other.tag == "Light")
         {
+            MovePlayer._speed = 2;
             _inRangeLight = true;
         }
     }
@@ -63,6 +65,7 @@ public class DetectLight : MonoBehaviour
     {
         if (other.tag == "Light")
         {
+            MovePlayer._speed = 10;
             _inRangeLight = false;
             _inLight = false;
         }
