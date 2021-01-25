@@ -13,14 +13,19 @@ public class EnemyController : MonoBehaviour
     [SerializeField]
     Transform _targetDestino;
     bool _canPlayerDetect;
+    [SerializeField]
+    Renderer _renderer;
     private void Start()
     {
+        _renderer.material.SetColor("_Color", new Color(1f, 1f, 1f));
         _canPlayerDetect = false;
         _targetOrigen = transform.position;
+       
     }
 
     private void Update()
     {
+        
         if (DetectLight._inLight)
         {
             if (_canPlayerDetect)
