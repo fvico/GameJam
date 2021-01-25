@@ -89,9 +89,10 @@ public class MovePlayer : MonoBehaviour
         //SUBIR PAREDES
 
         RaycastHit hit;
-        Debug.DrawRay(transform.position, new Vector3(0f,0f,0.6f), Color.green);
+        Vector3 origen = new Vector3(transform.position.x, transform.position.y - 0.6f, transform.position.z);
+        Debug.DrawRay(origen, new Vector3(0f,0f,0.6f), Color.green);
         
-        if (Physics.Raycast(transform.position, new Vector3(0f, 0f, 0.6f), out hit, 1f, stickyLayer)) {
+        if (Physics.Raycast(origen, new Vector3(0f, 0f, 0.6f), out hit, 1f, stickyLayer)) {
 
             if (Input.GetKey(KeyCode.Space))
             {
@@ -114,7 +115,7 @@ public class MovePlayer : MonoBehaviour
             myCC.Move(Vector3.down *  verticalFreeFallingGravity * Time.deltaTime);
         }
 
-        Debug.DrawRay(transform.position, new Vector3(0f, 0f, -0.6f), Color.green);
+        /*Debug.DrawRay(transform.position, new Vector3(0f, 0f, -0.6f), Color.green);
         if (Physics.Raycast(transform.position, new Vector3(0f, 0f, -0.6f), out hit, 1f, stickyLayer))
         {
 
@@ -151,7 +152,7 @@ public class MovePlayer : MonoBehaviour
         {
 
             print("Hola");
-        }
+        }*/
     }
 
     private void OnTriggerEnter(Collider other)

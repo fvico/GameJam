@@ -8507,15 +8507,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 424245656, guid: c9ab0813eeebe334fb2fe59ce794d4c9, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.00024270895
+      value: 0.00024273375
       objectReference: {fileID: 0}
     - target: {fileID: 424245656, guid: c9ab0813eeebe334fb2fe59ce794d4c9, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.045313776
+      value: -0.045313835
       objectReference: {fileID: 0}
     - target: {fileID: 424245656, guid: c9ab0813eeebe334fb2fe59ce794d4c9, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.005350904
+      value: 0.0053508813
       objectReference: {fileID: 0}
     - target: {fileID: 424245656, guid: c9ab0813eeebe334fb2fe59ce794d4c9, type: 3}
       propertyPath: m_LocalRotation.w
@@ -8604,18 +8604,23 @@ PrefabInstance:
     - target: {fileID: 7847096795982084785, guid: c9ab0813eeebe334fb2fe59ce794d4c9,
         type: 3}
       propertyPath: verticalSpeed
-      value: 2
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7847096795982084785, guid: c9ab0813eeebe334fb2fe59ce794d4c9,
         type: 3}
       propertyPath: verticalGravity
-      value: 0.5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7847096795982084785, guid: c9ab0813eeebe334fb2fe59ce794d4c9,
         type: 3}
       propertyPath: meshParticles
       value: 
       objectReference: {fileID: 169600183}
+    - target: {fileID: 7847096795982084785, guid: c9ab0813eeebe334fb2fe59ce794d4c9,
+        type: 3}
+      propertyPath: verticalFreeFallingGravity
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 7847096795982084786, guid: c9ab0813eeebe334fb2fe59ce794d4c9,
         type: 3}
       propertyPath: m_LocalPosition.x
