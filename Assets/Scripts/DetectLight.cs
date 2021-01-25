@@ -10,6 +10,10 @@ public class DetectLight : MonoBehaviour
     [SerializeField]
     Renderer _renderer;
     [SerializeField]
+    Material _materialInLight;
+    [SerializeField]
+    Material _materialInShadow;
+    [SerializeField]
     GameObject _sytemParticles;
     [SerializeField]
     float _speedToDisolver;
@@ -24,6 +28,7 @@ public class DetectLight : MonoBehaviour
 
     private void Start()
     {
+        _renderer.material = _materialInLight;
         MovePlayer._speed = 2;
         _inRangeLight = false;
         _inLight = false;
@@ -39,6 +44,7 @@ public class DetectLight : MonoBehaviour
             _countToDisolver += Time.deltaTime *_speedToDisolver;
             if(_countToDisolver > _maxDisolver)
             {
+                _renderer.material = _materialInLight;
                 _countToDisolver = _maxDisolver;
             }
             
@@ -47,7 +53,7 @@ public class DetectLight : MonoBehaviour
         }
         else
         {
-           
+            _renderer.material = _materialInShadow;
             _countToDisolver -= Time.deltaTime *_speedToDisolver;
             if(_countToDisolver < _minDisolver)
             {
