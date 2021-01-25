@@ -20,8 +20,10 @@ public class DetectLight : MonoBehaviour
     [SerializeField]
     float _minDisolver = -0.7f;
     [SerializeField]
-    float _maxDisolver =  1.5f;
+    float _maxDisolver =  1.15f;
     float _countToDisolver = -0.7f;
+    [SerializeField]
+    Renderer _renderTrail;
 
 
 
@@ -47,7 +49,7 @@ public class DetectLight : MonoBehaviour
                 _renderer.material = _materialInLight;
                 _countToDisolver = _maxDisolver;
             }
-            
+            _renderTrail.material.SetFloat("_DisolverTrail", _countToDisolver);
             _renderer.material.SetFloat("_Disolver",_countToDisolver);
             _sytemParticles.SetActive(false);
         }
@@ -59,6 +61,7 @@ public class DetectLight : MonoBehaviour
             {
                 _countToDisolver = _minDisolver;
             }
+            _renderTrail.material.SetFloat("_DisolverTrail", _countToDisolver);
             _renderer.material.SetFloat("_Disolver", _countToDisolver);
             _sytemParticles.SetActive(true);
         }
