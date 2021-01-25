@@ -958,6 +958,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 149554885}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &169600183 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7847096794779360440, guid: c9ab0813eeebe334fb2fe59ce794d4c9,
+    type: 3}
+  m_PrefabInstance: {fileID: 7847096794668982995}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &188937334
 GameObject:
   m_ObjectHideFlags: 0
@@ -1435,7 +1441,7 @@ GameObject:
   - component: {fileID: 304401122}
   - component: {fileID: 304401121}
   - component: {fileID: 304401120}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8483,11 +8489,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1502817720, guid: c9ab0813eeebe334fb2fe59ce794d4c9, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.0050129504
+      value: -0.005012956
       objectReference: {fileID: 0}
     - target: {fileID: 1502817720, guid: c9ab0813eeebe334fb2fe59ce794d4c9, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.04858733
+      value: -0.048587326
       objectReference: {fileID: 0}
     - target: {fileID: 7847096795982084750, guid: c9ab0813eeebe334fb2fe59ce794d4c9,
         type: 3}
@@ -8509,6 +8515,26 @@ PrefabInstance:
       propertyPath: cerebrosCamara.Array.data[3]
       value: 
       objectReference: {fileID: 2002720874}
+    - target: {fileID: 7847096795982084785, guid: c9ab0813eeebe334fb2fe59ce794d4c9,
+        type: 3}
+      propertyPath: stickyLayer.m_Bits
+      value: 1024
+      objectReference: {fileID: 0}
+    - target: {fileID: 7847096795982084785, guid: c9ab0813eeebe334fb2fe59ce794d4c9,
+        type: 3}
+      propertyPath: verticalSpeed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7847096795982084785, guid: c9ab0813eeebe334fb2fe59ce794d4c9,
+        type: 3}
+      propertyPath: verticalGravity
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7847096795982084785, guid: c9ab0813eeebe334fb2fe59ce794d4c9,
+        type: 3}
+      propertyPath: meshParticles
+      value: 
+      objectReference: {fileID: 169600183}
     - target: {fileID: 7847096795982084786, guid: c9ab0813eeebe334fb2fe59ce794d4c9,
         type: 3}
       propertyPath: m_LocalPosition.x
