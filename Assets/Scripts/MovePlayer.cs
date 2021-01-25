@@ -11,6 +11,8 @@ public class MovePlayer : MonoBehaviour
     
     private CharacterController myCC;
     private MeshRenderer meshCube;
+    private float alturaMax = 100f;
+    private bool subiendo = false;
 
 
     [SerializeField]
@@ -53,8 +55,14 @@ public class MovePlayer : MonoBehaviour
             case (0f): //Movimiento con la camara en 0 grados en y
                 horizontal = Input.GetAxisRaw("Horizontal");
                 vertical = Input.GetAxisRaw("Vertical");
-
-                direccion = new Vector3(horizontal, 0, vertical).normalized;
+                if (!subiendo)
+                {
+                    direccion = new Vector3(horizontal, 0, vertical).normalized;
+                }
+                else
+                {
+                    direccion = new Vector3(horizontal, 0, 0).normalized;
+                }
                 break;
 
             case (90f): //Movimiento con la camara en 90 grados en y
@@ -89,24 +97,42 @@ public class MovePlayer : MonoBehaviour
         //SUBIR PAREDES
 
         RaycastHit hit;
+        float distanciaRaycast = 0.6f;
         Vector3 origen = new Vector3(transform.position.x, transform.position.y - 0.6f, transform.position.z);
-        Debug.DrawRay(origen, new Vector3(0f,0f,0.6f), Color.green);
-        
-        if (Physics.Raycast(origen, new Vector3(0f, 0f, 0.6f), out hit, 1f, stickyLayer)) {
+        Vector3 tope = new Vector3(transform.position.x, transform.position.y + 0.6f, transform.position.z);
+        Vector3 frontal = new Vector3(0f, 0f, distanciaRaycast);
 
-            if (Input.GetKey(KeyCode.Space))
+        Debug.DrawRay(origen, frontal, Color.green); 
+        Debug.DrawRay(tope, frontal, Color.green);
+
+        if (Physics.Raycast(tope, Vector3.forward, out hit, distanciaRaycast, stickyLayer))
+        {
+            alturaMax = hit.point.y;
+        }
+         
+
+        if (Physics.Raycast(origen, Vector3.forward, out hit, distanciaRaycast, stickyLayer)) 
+        {
+            if (hit.point.y <= alturaMax)
             {
-                meshCube.transform.rotation = Quaternion.AngleAxis(180f, Vector3.right);
-                meshParticles.transform.rotation = Quaternion.AngleAxis(-180f, Vector3.right);
-                myCC.Move(Vector3.up * verticalSpeed * Time.deltaTime);
+                subiendo = true;
+                if (Input.GetKey(KeyCode.Space))
+                {
+                    meshCube.transform.rotation = Quaternion.AngleAxis(180f, Vector3.right);
+                    meshParticles.transform.rotation = Quaternion.AngleAxis(-180f, Vector3.right);
+                    myCC.Move(Vector3.up * verticalSpeed * Time.deltaTime);
+                }
+                else
+                {
+                    meshCube.transform.rotation = Quaternion.AngleAxis(-145f, Vector3.right);           //Rotacion por defecto del mesh
+                    meshParticles.transform.rotation = Quaternion.AngleAxis(-180f, Vector3.right);      //Rotacion por defecto del sistema de particulas
+                    myCC.Move(Vector3.down * verticalGravity * Time.deltaTime);
+                }
             }
             else
             {
-                meshCube.transform.rotation = Quaternion.AngleAxis(-145f, Vector3.right);           //Rotacion por defecto del mesh
-                meshParticles.transform.rotation = Quaternion.AngleAxis(-180f, Vector3.right);      //Rotacion por defecto del sistema de particulas
-                myCC.Move(Vector3.down * verticalGravity * Time.deltaTime);
+                subiendo = false;
             }
-
         }
         else
         {
