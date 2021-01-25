@@ -24,6 +24,8 @@ public class MovePlayer : MonoBehaviour
     [SerializeField]
     float verticalGravity;
     [SerializeField]
+    float verticalFreeFallingGravity;
+    [SerializeField]
     GameObject meshParticles;
 
 
@@ -91,8 +93,6 @@ public class MovePlayer : MonoBehaviour
         
         if (Physics.Raycast(transform.position, new Vector3(0f, 0f, 0.6f), out hit, 1f, stickyLayer)) {
 
-            print("Hola");
-
             if (Input.GetKey(KeyCode.Space))
             {
                 meshCube.transform.rotation = Quaternion.AngleAxis(180f, Vector3.right);
@@ -101,17 +101,17 @@ public class MovePlayer : MonoBehaviour
             }
             else
             {
-                meshCube.transform.rotation = Quaternion.AngleAxis(90f, Vector3.right);
-                meshParticles.transform.rotation = Quaternion.AngleAxis(-180f, Vector3.right);
+                meshCube.transform.rotation = Quaternion.AngleAxis(-145f, Vector3.right);           //Rotacion por defecto del mesh
+                meshParticles.transform.rotation = Quaternion.AngleAxis(-180f, Vector3.right);      //Rotacion por defecto del sistema de particulas
                 myCC.Move(Vector3.down * verticalGravity * Time.deltaTime);
             }
 
         }
         else
         {
-            meshCube.transform.rotation = Quaternion.AngleAxis(90f, Vector3.right);
+            meshCube.transform.rotation = Quaternion.AngleAxis(-145f, Vector3.right);
             meshParticles.transform.rotation = Quaternion.AngleAxis(-90f, Vector3.right);
-            myCC.Move(Vector3.down * verticalGravity * 50 * Time.deltaTime);
+            myCC.Move(Vector3.down * verticalGravity * verticalFreeFallingGravity * Time.deltaTime);
         }
 
         Debug.DrawRay(transform.position, new Vector3(0f, 0f, -0.6f), Color.green);
@@ -119,6 +119,24 @@ public class MovePlayer : MonoBehaviour
         {
 
             print("Hola");
+            if (Input.GetKey(KeyCode.Space))
+            {
+                meshCube.transform.rotation = Quaternion.AngleAxis(180f, Vector3.right);
+                meshParticles.transform.rotation = Quaternion.AngleAxis(-180f, Vector3.right);
+                myCC.Move(Vector3.up * verticalSpeed * Time.deltaTime);
+            }
+            else
+            {
+                meshCube.transform.rotation = Quaternion.AngleAxis(-145f, Vector3.right);           //Rotacion por defecto del mesh
+                meshParticles.transform.rotation = Quaternion.AngleAxis(-180f, Vector3.right);      //Rotacion por defecto del sistema de particulas
+                myCC.Move(Vector3.down * verticalGravity * Time.deltaTime);
+            }
+        }
+        else
+        {
+            meshCube.transform.rotation = Quaternion.AngleAxis(-145f, Vector3.right);
+            meshParticles.transform.rotation = Quaternion.AngleAxis(-90f, Vector3.right);
+            myCC.Move(Vector3.down * verticalGravity * verticalFreeFallingGravity * Time.deltaTime);
         }
 
         Debug.DrawRay(transform.position, new Vector3(0.6f, 0f, 0f), Color.green);
