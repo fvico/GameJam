@@ -111,7 +111,7 @@ public class MovePlayer : MonoBehaviour
         {
             meshCube.transform.rotation = Quaternion.AngleAxis(-145f, Vector3.right);
             meshParticles.transform.rotation = Quaternion.AngleAxis(-90f, Vector3.right);
-            myCC.Move(Vector3.down * verticalGravity * verticalFreeFallingGravity * Time.deltaTime);
+            myCC.Move(Vector3.down *  verticalFreeFallingGravity * Time.deltaTime);
         }
 
         Debug.DrawRay(transform.position, new Vector3(0f, 0f, -0.6f), Color.green);
@@ -136,7 +136,7 @@ public class MovePlayer : MonoBehaviour
         {
             meshCube.transform.rotation = Quaternion.AngleAxis(-145f, Vector3.right);
             meshParticles.transform.rotation = Quaternion.AngleAxis(-90f, Vector3.right);
-            myCC.Move(Vector3.down * verticalGravity * verticalFreeFallingGravity * Time.deltaTime);
+            myCC.Move(Vector3.down  * verticalFreeFallingGravity * Time.deltaTime);
         }
 
         Debug.DrawRay(transform.position, new Vector3(0.6f, 0f, 0f), Color.green);
