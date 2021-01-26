@@ -24,7 +24,8 @@ public class DetectLight : MonoBehaviour
     float _countToDisolver = -0.7f;
     [SerializeField]
     Renderer _renderTrail;
-
+    [SerializeField]
+    PostProcesingControl _globalVolumen;
 
 
 
@@ -42,7 +43,7 @@ public class DetectLight : MonoBehaviour
         
         if (_inLight)
         {
-           
+            _globalVolumen.DeactivateVolumen();
             _countToDisolver += Time.deltaTime *_speedToDisolver;
             if(_countToDisolver > _maxDisolver)
             {
@@ -55,6 +56,7 @@ public class DetectLight : MonoBehaviour
         }
         else
         {
+            _globalVolumen.ActivateVolumen();
             _renderer.material = _materialInShadow;
             _countToDisolver -= Time.deltaTime *_speedToDisolver;
             if(_countToDisolver < _minDisolver)
