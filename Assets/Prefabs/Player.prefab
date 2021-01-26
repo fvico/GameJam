@@ -90,8 +90,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 194508531}
-  m_LocalRotation: {x: -0.07409754, y: 0.000000008879982, z: -0.00000000765163, w: 0.997251}
-  m_LocalPosition: {x: 0, y: -0.35355377, z: 7.424621}
+  m_LocalRotation: {x: -0.074097484, y: -0.000000024260547, z: 0.00000002090471, w: 0.99725103}
+  m_LocalPosition: {x: -4.684, y: 15.429071, z: 23.207247}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2015387819}
@@ -232,7 +232,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 424245655}
   m_LocalRotation: {x: -0.04531443, y: -8.079736e-17, z: -1.7812086e-15, w: 0.9989728}
-  m_LocalPosition: {x: 0, y: -0.35355377, z: 7.424621}
+  m_LocalPosition: {x: -4.684, y: 15.429071, z: 23.207247}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 710316028}
@@ -756,7 +756,7 @@ Transform:
   m_GameObject: {fileID: 1502817719}
   m_LocalRotation: {x: -0.10262941, y: -0.000000009095488, z: 0.0000000073941986,
     w: 0.9947197}
-  m_LocalPosition: {x: 0, y: -0.35355377, z: 7.424621}
+  m_LocalPosition: {x: -4.684, y: 15.429071, z: 23.207247}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 653405934}
@@ -1155,8 +1155,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7370021205129263493}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0, z: 0.284}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.28400007}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7847096794779360445}
@@ -6143,6 +6143,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 7847096796528370616}
+  meshParticles: {fileID: 0}
   cerebrosCamara:
   - {fileID: 2101744915}
   - {fileID: 2002720874}
@@ -6154,7 +6155,7 @@ MonoBehaviour:
   verticalSpeed: 0
   verticalGravity: 0
   verticalFreeFallingGravity: 0
-  meshParticles: {fileID: 0}
+  turnSmoothTime: 0.1
 --- !u!114 &7847096795982084791
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6174,6 +6175,8 @@ MonoBehaviour:
   _speedToDisolver: 2.3
   _minDisolver: -0.7
   _maxDisolver: 1.15
+  _renderTrail: {fileID: 0}
+  _globalVolumen: {fileID: 0}
 --- !u!143 &1455937632
 CharacterController:
   m_ObjectHideFlags: 0
@@ -6221,7 +6224,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7847096796528370612}
   m_LocalRotation: {x: 0.38268343, y: -0, z: -0, w: 0.92387956}
-  m_LocalPosition: {x: 0, y: 8, z: -8}
+  m_LocalPosition: {x: 4.684, y: 8, z: -30.320004}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 424245656}

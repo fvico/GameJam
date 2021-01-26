@@ -63,10 +63,17 @@ public class MovePlayer : MonoBehaviour
                 if (!subiendoFrontalmente && !subiendoLaterlamente)
                 {
                     direccion = new Vector3(horizontal, 0, vertical).normalized;
-
-                    float targetAngle = Mathf.Atan2(direccion.x, direccion.z) * Mathf.Rad2Deg;
-                    float angle = Mathf.SmoothDampAngle(meshCube.transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
-                    meshCube.transform.rotation = Quaternion.Euler(-90f, angle, 0f);
+                    if (direccion.magnitude != 0)
+                    {
+                        float targetAngle = Mathf.Atan2(direccion.x, direccion.z) * Mathf.Rad2Deg;
+                        float angle = Mathf.SmoothDampAngle(meshCube.transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
+                        meshCube.transform.rotation = Quaternion.Euler(-90f, angle, 0f);
+                    }
+                    else
+                    {
+                        float angle = Mathf.SmoothDampAngle(meshCube.transform.eulerAngles.y, 0f, ref turnSmoothVelocity, turnSmoothTime);
+                        meshCube.transform.rotation = Quaternion.Euler(-90f, angle, 0f);
+                    }
                     //calculatePlayerRotation(horizontal, vertical);
 
                 }
@@ -149,6 +156,7 @@ public class MovePlayer : MonoBehaviour
         {
             myCC.Move(direccion.normalized * _speed * Time.deltaTime);
         }
+
 
 
         //SUBIR PAREDES
