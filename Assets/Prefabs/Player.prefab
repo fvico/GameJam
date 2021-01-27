@@ -90,7 +90,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 194508531}
-  m_LocalRotation: {x: -0.07381632, y: -0.006449164, z: -0.08679742, w: 0.99346656}
+  m_LocalRotation: {x: -0.07409754, y: 0.000000008879982, z: -0.00000000765163, w: 0.997251}
   m_LocalPosition: {x: 0, y: -0.35355377, z: 7.424621}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -231,7 +231,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 424245655}
-  m_LocalRotation: {x: -0.045313835, y: 0.00024270779, z: 0.0053508864, w: 0.99895847}
+  m_LocalRotation: {x: -0.04531443, y: -8.079736e-17, z: -1.7812086e-15, w: 0.9989728}
   m_LocalPosition: {x: 0, y: -0.35355377, z: 7.424621}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -754,7 +754,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1502817719}
-  m_LocalRotation: {x: -0.102507204, y: -0.0050069606, z: -0.048529483, w: 0.99353516}
+  m_LocalRotation: {x: -0.10262941, y: -0.000000009095488, z: 0.0000000073941986,
+    w: 0.9947197}
   m_LocalPosition: {x: 0, y: -0.35355377, z: 7.424621}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -5960,7 +5961,7 @@ TrailRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: faeb60d2064d76a4b97d49e8f3b123bd, type: 2}
+  - {fileID: 2100000, guid: e823cd5b5d27c0f4b8256e7c12ee3e6d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5980,7 +5981,7 @@ TrailRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -10
+  m_SortingOrder: 0
   m_Time: 1.3
   m_Parameters:
     serializedVersion: 3
@@ -5989,7 +5990,7 @@ TrailRenderer:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0.3941307
+        time: 0.4621197
         value: 1
         inSlope: -1.1006233
         outSlope: -1.1006233
@@ -5998,14 +5999,14 @@ TrailRenderer:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.5958673
-        value: 0.08761948
-        inSlope: -0.24383055
-        outSlope: -0.24383055
+        time: 0.5730927
+        value: 0.06905325
+        inSlope: -0.64293224
+        outSlope: -0.64293224
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
-        outWeight: 0.22685859
+        outWeight: 0.22517298
       - serializedVersion: 3
         time: 1
         value: 0
@@ -6053,28 +6054,9 @@ TrailRenderer:
     textureMode: 0
     shadowBias: 0.5
     generateLightingData: 0
-  m_MinVertexDistance: 1
+  m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
---- !u!95 &1134755467
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7706158058915475474}
-  m_Enabled: 0
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 29a956264e48c9f42b6f76d5d9db9890, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &7847096794779360440
 GameObject:
   m_ObjectHideFlags: 0
@@ -6161,7 +6143,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 7847096796528370616}
-  meshParticles: {fileID: 7847096794779360440}
   cerebrosCamara:
   - {fileID: 2101744915}
   - {fileID: 2002720874}
@@ -6169,11 +6150,11 @@ MonoBehaviour:
   - {fileID: 428666294}
   stickyLayer:
     serializedVersion: 2
-    m_Bits: 1024
-  verticalSpeed: 6
-  verticalGravity: 6
-  verticalFreeFallingGravity: 5
-  turnSmoothTime: 0.1
+    m_Bits: 0
+  verticalSpeed: 0
+  verticalGravity: 0
+  verticalFreeFallingGravity: 0
+  meshParticles: {fileID: 0}
 --- !u!114 &7847096795982084791
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6186,15 +6167,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c2859f184cac1c48a3249b98c774d7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _renderer: {fileID: 8210406941105852871}
-  _materialInLight: {fileID: 2100000, guid: c19414fba354e1f4b9de9a591ec5094f, type: 2}
-  _materialInShadow: {fileID: 2100000, guid: 29bba1fe08a2f41428ca89585ded154e, type: 2}
+  _renderer: {fileID: 0}
+  _materialInLight: {fileID: 0}
+  _materialInShadow: {fileID: 0}
   _sytemParticles: {fileID: 7847096794779360440}
   _speedToDisolver: 2.3
   _minDisolver: -0.7
   _maxDisolver: 1.15
-  _renderTrail: {fileID: 8102699891763131424}
-  _globalVolumen: {fileID: 0}
 --- !u!143 &1455937632
 CharacterController:
   m_ObjectHideFlags: 0
@@ -6480,17 +6459,17 @@ PrefabInstance:
     - target: {fileID: 1128889428344468404, guid: 9719678f42541444d9fb85cf34667dd7,
         type: 3}
       propertyPath: InitialModule.startColor.maxColor.r
-      value: 0
+      value: 0.11320752
       objectReference: {fileID: 0}
     - target: {fileID: 1128889428344468404, guid: 9719678f42541444d9fb85cf34667dd7,
         type: 3}
       propertyPath: InitialModule.startColor.maxColor.g
-      value: 0
+      value: 0.11320752
       objectReference: {fileID: 0}
     - target: {fileID: 1128889428344468404, guid: 9719678f42541444d9fb85cf34667dd7,
         type: 3}
       propertyPath: InitialModule.startColor.maxColor.b
-      value: 0
+      value: 0.11320752
       objectReference: {fileID: 0}
     - target: {fileID: 1128889428344468405, guid: 9719678f42541444d9fb85cf34667dd7,
         type: 3}
@@ -6629,21 +6608,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 92da77d9f48f2a149b51217029764d80, type: 3}
---- !u!23 &8210406941105852871 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: 92da77d9f48f2a149b51217029764d80,
-    type: 3}
-  m_PrefabInstance: {fileID: 7363574769023094083}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7041964333816605352 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 92da77d9f48f2a149b51217029764d80,
-    type: 3}
-  m_PrefabInstance: {fileID: 7363574769023094083}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &7706158058915475474 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 92da77d9f48f2a149b51217029764d80,
     type: 3}
   m_PrefabInstance: {fileID: 7363574769023094083}
   m_PrefabAsset: {fileID: 0}
