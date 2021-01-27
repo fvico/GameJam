@@ -15,7 +15,6 @@ public class EnemyController : MonoBehaviour
     bool _canPlayerDetect;
     [SerializeField]
     Renderer _renderer;
-
     private void Start()
     {
         _renderer.material.SetColor("_Color", new Color(1f, 1f, 1f));
@@ -23,7 +22,6 @@ public class EnemyController : MonoBehaviour
         _targetOrigen = transform.position;
        
     }
-    
 
     private void Update()
     {
@@ -37,6 +35,7 @@ public class EnemyController : MonoBehaviour
         }
         else
         {
+            print("Entro");
             ChangeDestino(_targetOrigen);
         }
         
@@ -61,6 +60,4 @@ public class EnemyController : MonoBehaviour
             _canPlayerDetect = false;
         }
     }
-
-   
 }

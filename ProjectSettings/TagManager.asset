@@ -8,7 +8,6 @@ TagManager:
   - Enemy
   - ChangeLight
   - TriggerCambiaAngulos
-  - ReiniciarNivel
   layers:
   - Default
   - TransparentFX
