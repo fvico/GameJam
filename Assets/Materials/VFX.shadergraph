@@ -22,7 +22,7 @@
             "typeInfo": {
                 "fullName": "UnityEditor.ShaderGraph.Internal.Vector1ShaderProperty"
             },
-            "JSONnodeData": "{\n    \"m_Guid\": {\n        \"m_GuidSerialized\": \"cd4aa758-fa51-4bf3-a031-8b2dc94549d7\"\n    },\n    \"m_Name\": \"Disolver\",\n    \"m_DefaultReferenceName\": \"Vector1_13897506\",\n    \"m_OverrideReferenceName\": \"_DisolverTrail\",\n    \"m_GeneratePropertyBlock\": true,\n    \"m_Precision\": 0,\n    \"m_GPUInstanced\": false,\n    \"m_Hidden\": false,\n    \"m_Value\": 0.0,\n    \"m_FloatType\": 0,\n    \"m_RangeValues\": {\n        \"x\": 0.0,\n        \"y\": 1.0\n    }\n}"
+            "JSONnodeData": "{\n    \"m_Guid\": {\n        \"m_GuidSerialized\": \"cd4aa758-fa51-4bf3-a031-8b2dc94549d7\"\n    },\n    \"m_Name\": \"Disolver\",\n    \"m_DefaultReferenceName\": \"Vector1_13897506\",\n    \"m_OverrideReferenceName\": \"_DisolverVFX\",\n    \"m_GeneratePropertyBlock\": true,\n    \"m_Precision\": 0,\n    \"m_GPUInstanced\": false,\n    \"m_Hidden\": false,\n    \"m_Value\": 0.0,\n    \"m_FloatType\": 0,\n    \"m_RangeValues\": {\n        \"x\": 0.0,\n        \"y\": 1.0\n    }\n}"
         },
         {
             "typeInfo": {
