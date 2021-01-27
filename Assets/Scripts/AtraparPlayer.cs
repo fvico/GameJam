@@ -11,13 +11,7 @@ public class AtraparPlayer : MonoBehaviour
     Transform _positionInicialPlayer;
     [SerializeField]
     Animator _FadeInOut;
-    //[SerializeField]
-    
 
-    private void Start()
-    {
-       
-    }
 
     IEnumerator ReinicioNivel()
     {
@@ -35,7 +29,7 @@ public class AtraparPlayer : MonoBehaviour
         {
             print("Cchoque");
             StartCoroutine(ReinicioNivel());
-            //_canPlayer = false;
+            MovePlayer._canPlayer = false;
         }
     }
 }
