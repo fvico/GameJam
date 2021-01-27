@@ -25,7 +25,11 @@ public class DetectLight : MonoBehaviour
     [SerializeField]
     Renderer _renderTrail;
     [SerializeField]
-    PostProcesingControl _globalVolumen;
+    Renderer _renderDark;
+    [SerializeField]
+    Renderer _renderShadow;
+    [SerializeField]
+    Animator _globalVolumen;
 
 
 
@@ -43,27 +47,31 @@ public class DetectLight : MonoBehaviour
         
         if (_inLight)
         {
-            _globalVolumen.DeactivateVolumen();
+            _globalVolumen.SetBool("PPIsActive", false);
             _countToDisolver += Time.deltaTime *_speedToDisolver;
             if(_countToDisolver > _maxDisolver)
             {
                 _renderer.material = _materialInLight;
                 _countToDisolver = _maxDisolver;
             }
-            _renderTrail.material.SetFloat("_DisolverTrail", _countToDisolver);
+            _renderTrail.material.SetFloat("_DisolverVFX", _countToDisolver);
+            _renderDark.material.SetFloat("_DisolverVFX", _countToDisolver);
+            _renderShadow.material.SetFloat("_DisolverVFX", _countToDisolver);
             _renderer.material.SetFloat("_Disolver",_countToDisolver);
             _sytemParticles.SetActive(false);
         }
         else
         {
-            _globalVolumen.ActivateVolumen();
+            _globalVolumen.SetBool("PPIsActive", true);
             _renderer.material = _materialInShadow;
             _countToDisolver -= Time.deltaTime *_speedToDisolver;
             if(_countToDisolver < _minDisolver)
             {
                 _countToDisolver = _minDisolver;
             }
-            _renderTrail.material.SetFloat("_DisolverTrail", _countToDisolver);
+            _renderTrail.material.SetFloat("_DisolverVFX", _countToDisolver);
+            _renderDark.material.SetFloat("_DisolverVFX", _countToDisolver);
+            _renderShadow.material.SetFloat("_DisolverVFX", _countToDisolver);
             _renderer.material.SetFloat("_Disolver", _countToDisolver);
             _sytemParticles.SetActive(true);
         }
