@@ -66,7 +66,7 @@ public class MovePlayer : MonoBehaviour
 
                     float targetAngle = Mathf.Atan2(direccion.x, direccion.z) * Mathf.Rad2Deg;
                     float angle = Mathf.SmoothDampAngle(meshCube.transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
-                    meshCube.transform.rotation = Quaternion.Euler(-90f, angle, 0f);
+                    meshCube.transform.rotation = Quaternion.Euler(-90f , angle, 0f);
                     //calculatePlayerRotation(horizontal, vertical);
 
                 }
