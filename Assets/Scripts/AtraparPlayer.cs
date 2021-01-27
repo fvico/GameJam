@@ -25,6 +25,7 @@ public class AtraparPlayer : MonoBehaviour
         if (other.tag == "ReiniciarNivel")
         {
             print("Cchoque");
+            StartCoroutine(ReinicioNivel());
         }
     }
 }
