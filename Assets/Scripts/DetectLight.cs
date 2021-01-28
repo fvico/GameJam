@@ -30,8 +30,6 @@ public class DetectLight : MonoBehaviour
     Renderer _renderShadow;
     [SerializeField]
     Animator _globalVolumen;
-    [SerializeField]
-    GameObject _rejillas;
 
 
 
