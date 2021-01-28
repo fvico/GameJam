@@ -21,6 +21,8 @@ public class PauseMenu : MonoBehaviour
     Sprite iconoMuted;
     [SerializeField]
     Sprite iconoUnmuted;
+    [SerializeField]
+    bool noPlayer;
 
     private AudioSource musicAudioSource;
     private AudioSource FXAudioSource;
@@ -32,7 +34,10 @@ public class PauseMenu : MonoBehaviour
     void Start()
     {
         musicAudioSource = GameObject.FindGameObjectWithTag("music").GetComponent<AudioSource>();
-        FXPlayerAudioSource = GameObject.FindGameObjectWithTag("Player").GetComponent<AudioSource>();
+        if (!noPlayer)
+        {
+            FXPlayerAudioSource = GameObject.FindGameObjectWithTag("Player").GetComponent<AudioSource>();
+        }
         FXAudioSource = GetComponent<AudioSource>();
         musicSlider = elementosUI[5].GetComponentInChildren<Slider>();
         FXSlider = elementosUI[6].GetComponentInChildren<Slider>();
@@ -45,15 +50,21 @@ public class PauseMenu : MonoBehaviour
 
         if (_FXMuted)
         {
-            FXPlayerAudioSource.mute = true;
+            if (!noPlayer)
+            {
+                FXPlayerAudioSource.mute = true;
+            }
             FXAudioSource.mute = true;
             muteButtonFX.gameObject.GetComponent<Image>().sprite = iconoMuted;
         }
         else
         {
-            FXPlayerAudioSource.mute = false;
+            if (!noPlayer)
+            {
+                FXPlayerAudioSource.mute = false;
+                FXPlayerAudioSource.volume = _volumenFX;
+            }
             FXAudioSource.mute = false;
-            FXPlayerAudioSource.volume = _volumenFX;
             FXAudioSource.volume = _volumenFX;
             muteButtonFX.gameObject.GetComponent<Image>().sprite = iconoUnmuted;
         }
