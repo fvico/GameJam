@@ -9,6 +9,7 @@ TagManager:
   - ChangeLight
   - TriggerCambiaAngulos
   - EnemigoPerder
+  - PadreDeTodos
   layers:
   - Default
   - TransparentFX
