@@ -14,15 +14,25 @@ public class Interruptor : MonoBehaviour
     float _time;
     [SerializeField]
     bool _isTime;
+    [SerializeField]
+    bool _haveMoreSwitch;
+    [SerializeField]
+    [Header("_numSwitchToActivate Tiene que coincider el numero de interructores de este tipo")]
+    float _numSwitchToActivate;
+    public static float _currentNumSwitchToActivate;
+    bool _isActive = true;
+
 
     private void Start()
     {
         _meshOff.SetActive(false);
         _meshOn.SetActive(true);
+        _currentNumSwitchToActivate = 0;
     }
     
     IEnumerator BotonForTime()
     {
+       
         for (int i = 0; i < _switch.Count; i++)
         {
             _switch[i].SetActive(false);
@@ -40,7 +50,8 @@ public class Interruptor : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Player")
+
+        if (other.tag == "Player")
         {
             if (_isTime)
             {
@@ -50,9 +61,32 @@ public class Interruptor : MonoBehaviour
             {
                 for (int i = 0; i < _switch.Count; i++)
                 {
-                    _switch[i].SetActive(false);
+                    if (!_haveMoreSwitch)
+                    {
+                        _switch[i].SetActive(false);
+                    }
                     _meshOff.SetActive(true);
                     _meshOn.SetActive(false);
+                }
+            }
+            if (_haveMoreSwitch)
+            {
+                print(_isActive);
+                if (_isActive)
+                {
+                    _isActive = false;
+                    _currentNumSwitchToActivate++;
+                    print(_currentNumSwitchToActivate);
+                }
+                if(_currentNumSwitchToActivate >= _numSwitchToActivate)
+                {
+                    _currentNumSwitchToActivate = _numSwitchToActivate;
+
+                    for (int i = 0; i < _switch.Count; i++)
+                    {
+                        _switch[i].SetActive(false);
+                    }
+
                 }
             }
             
