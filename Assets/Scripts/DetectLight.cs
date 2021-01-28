@@ -30,15 +30,23 @@ public class DetectLight : MonoBehaviour
     Renderer _renderShadow;
     [SerializeField]
     Animator _globalVolumen;
+    
+    AudioReverbZone _audioReverbZone;
+    AudioReverbFilter _audioReverbFilter;
 
 
-
+    
     private void Start()
     {
+        _audioReverbFilter = GetComponent<AudioReverbFilter>();
+        _audioReverbFilter.enabled = false;
+        _audioReverbZone = GetComponent<AudioReverbZone>();
+        _audioReverbZone.enabled = false;
         _renderer.material = _materialInLight;
         MovePlayer._speed = 2;
         _inRangeLight = false;
         _inLight = false;
+        
         
     }
 
@@ -49,6 +57,9 @@ public class DetectLight : MonoBehaviour
         {
             _globalVolumen.SetBool("PPIsActive", false);
             _countToDisolver += Time.deltaTime *_speedToDisolver;
+            _audioReverbZone.enabled = false;
+            _audioReverbFilter.enabled = false;
+
             if(_countToDisolver > _maxDisolver)
             {
                 _renderer.material = _materialInLight;
@@ -64,7 +75,10 @@ public class DetectLight : MonoBehaviour
         {
             _globalVolumen.SetBool("PPIsActive", true);
             _renderer.material = _materialInShadow;
+            _audioReverbZone.enabled = true;
+            _audioReverbFilter.enabled = true;
             _countToDisolver -= Time.deltaTime *_speedToDisolver;
+
             if(_countToDisolver < _minDisolver)
             {
                 _countToDisolver = _minDisolver;
