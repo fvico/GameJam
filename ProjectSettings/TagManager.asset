@@ -11,6 +11,7 @@ TagManager:
   - EnemigoPerder
   - PadreDeTodos
   - music
+  - DestinationEnemy
   layers:
   - Default
   - TransparentFX

@@ -15,18 +15,31 @@ public class EnemyController : MonoBehaviour
     bool _canPlayerDetect;
     [SerializeField]
     Renderer _renderer;
+
     private void Start()
     {
         _renderer.material.SetColor("_Color", new Color(1f, 1f, 1f));
         _canPlayerDetect = false;
         _targetOrigen = transform.position;
+        ChangeDestino(_targetDestino.position);
        
     }
 
     private void Update()
     {
+
+        if(transform.position == _targetOrigen)
+        {
+            ChangeDestino(_targetDestino.position);
+            print("u");
+        }
+        else if(transform.position == _targetDestino.position)
+        {
+            ChangeDestino(_targetOrigen);
+            print("A");
+        }
         
-        if (DetectLight._inLight)
+        /*if (DetectLight._inLight)
         {
             if (_canPlayerDetect)
             {
@@ -37,7 +50,7 @@ public class EnemyController : MonoBehaviour
         {
             ChangeDestino(_targetOrigen);
         }
-        
+        */
     }
 
     void ChangeDestino(Vector3 destino)
@@ -51,6 +64,11 @@ public class EnemyController : MonoBehaviour
         {
             _canPlayerDetect = true;
         }
+        if (other.tag == "DestinationEnemy")
+        {
+            print("Hola");
+            ChangeDestino(_targetOrigen);
+        }
     }
     private void OnTriggerExit(Collider other)
     {
@@ -59,4 +77,5 @@ public class EnemyController : MonoBehaviour
             _canPlayerDetect = false;
         }
     }
+
 }
