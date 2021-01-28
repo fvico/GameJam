@@ -360,7 +360,12 @@ PrefabInstance:
     - target: {fileID: 6854803183205345899, guid: 0cb1e6bb27bf5e641a3bff1af9a1aa7d,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6854803183205345903, guid: 0cb1e6bb27bf5e641a3bff1af9a1aa7d,
+        type: 3}
+      propertyPath: noPlayer
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0cb1e6bb27bf5e641a3bff1af9a1aa7d, type: 3}
