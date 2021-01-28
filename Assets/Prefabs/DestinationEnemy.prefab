@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 5780678202350982159}
   m_Layer: 0
   m_Name: DestinationEnemy
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_TagString: DestinationEnemy
+  m_Icon: {fileID: 419385456094870383, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
