@@ -5408,15 +5408,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 424245656, guid: c9ab0813eeebe334fb2fe59ce794d4c9, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.045313776
+      value: -0.045313835
       objectReference: {fileID: 0}
     - target: {fileID: 424245656, guid: c9ab0813eeebe334fb2fe59ce794d4c9, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.00024273386
+      value: 0.00024270767
       objectReference: {fileID: 0}
     - target: {fileID: 424245656, guid: c9ab0813eeebe334fb2fe59ce794d4c9, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0053508636
+      value: 0.0053508873
       objectReference: {fileID: 0}
     - target: {fileID: 424245656, guid: c9ab0813eeebe334fb2fe59ce794d4c9, type: 3}
       propertyPath: m_LocalRotation.w
@@ -5434,17 +5434,113 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1455937630, guid: c9ab0813eeebe334fb2fe59ce794d4c9, type: 3}
+      propertyPath: m_ReverbPreset
+      value: 23
+      objectReference: {fileID: 0}
+    - target: {fileID: 1455937630, guid: c9ab0813eeebe334fb2fe59ce794d4c9, type: 3}
+      propertyPath: m_RoomHF
+      value: -4000
+      objectReference: {fileID: 0}
+    - target: {fileID: 1455937630, guid: c9ab0813eeebe334fb2fe59ce794d4c9, type: 3}
+      propertyPath: m_DecayTime
+      value: 1.49
+      objectReference: {fileID: 0}
+    - target: {fileID: 1455937630, guid: c9ab0813eeebe334fb2fe59ce794d4c9, type: 3}
+      propertyPath: m_DecayHFRatio
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1455937630, guid: c9ab0813eeebe334fb2fe59ce794d4c9, type: 3}
+      propertyPath: m_Reflections
+      value: -449
+      objectReference: {fileID: 0}
+    - target: {fileID: 1455937630, guid: c9ab0813eeebe334fb2fe59ce794d4c9, type: 3}
+      propertyPath: m_ReflectionsDelay
+      value: 0.007
+      objectReference: {fileID: 0}
+    - target: {fileID: 1455937630, guid: c9ab0813eeebe334fb2fe59ce794d4c9, type: 3}
+      propertyPath: m_Reverb
+      value: 1700
+      objectReference: {fileID: 0}
+    - target: {fileID: 1455937630, guid: c9ab0813eeebe334fb2fe59ce794d4c9, type: 3}
+      propertyPath: m_ReverbDelay
+      value: 0.011
+      objectReference: {fileID: 0}
+    - target: {fileID: 1455937630, guid: c9ab0813eeebe334fb2fe59ce794d4c9, type: 3}
+      propertyPath: m_MinDistance
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1455937630, guid: c9ab0813eeebe334fb2fe59ce794d4c9, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1455937630, guid: c9ab0813eeebe334fb2fe59ce794d4c9, type: 3}
+      propertyPath: m_MaxDistance
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1455937636, guid: c9ab0813eeebe334fb2fe59ce794d4c9, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1455937636, guid: c9ab0813eeebe334fb2fe59ce794d4c9, type: 3}
+      propertyPath: m_Room
+      value: -1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 1455937636, guid: c9ab0813eeebe334fb2fe59ce794d4c9, type: 3}
+      propertyPath: m_RoomHF
+      value: -4000
+      objectReference: {fileID: 0}
+    - target: {fileID: 1455937636, guid: c9ab0813eeebe334fb2fe59ce794d4c9, type: 3}
+      propertyPath: m_DecayTime
+      value: 1.49
+      objectReference: {fileID: 0}
+    - target: {fileID: 1455937636, guid: c9ab0813eeebe334fb2fe59ce794d4c9, type: 3}
+      propertyPath: m_DecayHFRatio
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1455937636, guid: c9ab0813eeebe334fb2fe59ce794d4c9, type: 3}
+      propertyPath: m_ReflectionsLevel
+      value: -449
+      objectReference: {fileID: 0}
+    - target: {fileID: 1455937636, guid: c9ab0813eeebe334fb2fe59ce794d4c9, type: 3}
+      propertyPath: m_ReverbLevel
+      value: 1700
+      objectReference: {fileID: 0}
+    - target: {fileID: 1455937636, guid: c9ab0813eeebe334fb2fe59ce794d4c9, type: 3}
+      propertyPath: m_ReverbDelay
+      value: 0.011
+      objectReference: {fileID: 0}
+    - target: {fileID: 1455937636, guid: c9ab0813eeebe334fb2fe59ce794d4c9, type: 3}
+      propertyPath: m_Density
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1455937636, guid: c9ab0813eeebe334fb2fe59ce794d4c9, type: 3}
+      propertyPath: m_HFReference
+      value: 5000
+      objectReference: {fileID: 0}
+    - target: {fileID: 1455937636, guid: c9ab0813eeebe334fb2fe59ce794d4c9, type: 3}
+      propertyPath: m_RoomLF
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1455937636, guid: c9ab0813eeebe334fb2fe59ce794d4c9, type: 3}
+      propertyPath: m_LFReference
+      value: 250
+      objectReference: {fileID: 0}
+    - target: {fileID: 1455937636, guid: c9ab0813eeebe334fb2fe59ce794d4c9, type: 3}
+      propertyPath: m_ReverbPreset
+      value: 23
+      objectReference: {fileID: 0}
     - target: {fileID: 1502817720, guid: c9ab0813eeebe334fb2fe59ce794d4c9, type: 3}
       propertyPath: m_LocalRotation.x
       value: -0.102507204
       objectReference: {fileID: 0}
     - target: {fileID: 1502817720, guid: c9ab0813eeebe334fb2fe59ce794d4c9, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.0050069587
+      value: -0.0050069606
       objectReference: {fileID: 0}
     - target: {fileID: 1502817720, guid: c9ab0813eeebe334fb2fe59ce794d4c9, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.048529483
+      value: -0.048529487
       objectReference: {fileID: 0}
     - target: {fileID: 1502817720, guid: c9ab0813eeebe334fb2fe59ce794d4c9, type: 3}
       propertyPath: m_LocalRotation.w
