@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-public class Niveles : MonoBehaviour
+public class Niveles : Editor
 {
 
     [MenuItem("Niveles/Test")]
