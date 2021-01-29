@@ -1,0 +1,97 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
+public class MenuNiveles : MonoBehaviour
+{
+
+    private AudioSource FXAudioSource;
+
+    void Start()
+    {
+        FXAudioSource = GetComponent<AudioSource>();
+        FXAudioSource.mute = PauseMenu._FXMuted;
+        FXAudioSource.volume = PauseMenu._volumenFX;
+    }
+
+    public void Menu()
+    {
+        StartCoroutine(WaitMenu());
+    }
+
+    public void Level1()
+    {
+        MovePlayer._actualLevel = 1;
+        StartCoroutine(WaitLevel1());
+
+    }
+
+    public void Level2()
+    {
+        MovePlayer._actualLevel = 2;
+        StartCoroutine(WaitLevel2());
+
+    }
+
+    public void Level3()
+    {
+        MovePlayer._actualLevel = 3;
+        StartCoroutine(WaitLevel3());
+
+    }
+
+    public void Level4()
+    {
+        MovePlayer._actualLevel = 4;
+        StartCoroutine(WaitLevel4());
+
+    }
+
+    public void Level5()
+    {
+        MovePlayer._actualLevel = 5;
+        StartCoroutine(WaitLevel5());
+
+    }
+
+
+
+    IEnumerator WaitMenu()
+    {
+        yield return new WaitUntil(() => FXAudioSource.isPlaying == false);
+        SceneManager.LoadScene("Menu");
+    }
+
+    IEnumerator WaitLevel1()
+    {
+        yield return new WaitUntil(() => FXAudioSource.isPlaying == false);
+        PlayerPrefs.SetInt("LevelToLoad", 1);
+        SceneManager.LoadScene("Testing");
+    }
+
+    IEnumerator WaitLevel2()
+    {
+        yield return new WaitUntil(() => FXAudioSource.isPlaying == false);
+        PlayerPrefs.SetInt("LevelToLoad", 2);
+        SceneManager.LoadScene("Testing");
+    }
+    IEnumerator WaitLevel3()
+    {
+        yield return new WaitUntil(() => FXAudioSource.isPlaying == false);
+        PlayerPrefs.SetInt("LevelToLoad", 3);
+        SceneManager.LoadScene("Testing");
+    }
+    IEnumerator WaitLevel4()
+    {
+        yield return new WaitUntil(() => FXAudioSource.isPlaying == false);
+        PlayerPrefs.SetInt("LevelToLoad", 4);
+        SceneManager.LoadScene("Testing");
+    }
+    IEnumerator WaitLevel5()
+    {
+        yield return new WaitUntil(() => FXAudioSource.isPlaying == false);
+        PlayerPrefs.SetInt("LevelToLoad", 5);
+        SceneManager.LoadScene("Testing");
+    }
+}

@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Pared
+  m_Name: ParedMenu
   m_Shader: {fileID: -6465566751694194690, guid: b357101e45a632946ae434445ef314eb,
     type: 3}
   m_ShaderKeywords: 
@@ -31,7 +31,7 @@ Material:
     m_Floats:
     - Vector1_12E06336: 45
     - Vector1_56686CA4: 0
-    - Vector1_5FB9D4AA: -0.72
+    - Vector1_5FB9D4AA: -2.53
     - Vector1_CDA55AF7: 0
     m_Colors:
     - Vector3_4CA7E327: {r: 0, g: 0, b: 0, a: 0}

@@ -11,6 +11,7 @@ public class MovePlayer : MonoBehaviour
     public static float _speed;
     public static bool _canPlayer;
     public static bool _paused = false;
+    public static float _actualLevel = 0;
 
     private CharacterController myCC;
     private MeshRenderer meshCube;
@@ -47,6 +48,7 @@ public class MovePlayer : MonoBehaviour
 
     private void Start()
     {
+        SetLevel(PlayerPrefs.GetInt("LevelToLoad"));
         myCC = GetComponent<CharacterController>();
         cam = Camera.main;
         meshCube = GetComponentInChildren<MeshRenderer>();
@@ -548,6 +550,21 @@ public class MovePlayer : MonoBehaviour
                     cerebrosCamara[3].gameObject.SetActive(true);
                 }
                 break;
+        }
+    }
+
+    public static void SetLevel(int level)
+    {
+        PlayerPrefs.SetInt("ActualLevel", level);
+        GameObject padreDeTodos = GameObject.FindGameObjectWithTag("PadreDeTodos");
+        if (level < padreDeTodos.transform.childCount)
+        {
+            PlayerPrefs.SetInt("LevelToLoad", level);
+            for (int i = 0; i < padreDeTodos.transform.childCount; i++)
+            {
+                padreDeTodos.transform.GetChild(i).gameObject.SetActive(false);
+            }
+            padreDeTodos.transform.GetChild(level).gameObject.SetActive(true);
         }
     }
 }

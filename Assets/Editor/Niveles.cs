@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-public class Niveles : Editor
+public class Niveles : MonoBehaviour
 {
+
 
     [MenuItem("Niveles/Test")]
     public static void SetLevelToTest()
@@ -28,6 +29,18 @@ public class Niveles : Editor
     public static void SetLevelTo3()
     {
         SetLevel(3);
+    }
+
+    [MenuItem("Niveles/4")]
+    public static void SetLevelTo4()
+    {
+        SetLevel(4);
+    }
+
+    [MenuItem("Niveles/5")]
+    public static void SetLevelTo5()
+    {
+        SetLevel(5);
     }
 
     public static void SetLevel(int level)

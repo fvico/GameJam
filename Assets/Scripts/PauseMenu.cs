@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -29,7 +30,8 @@ public class PauseMenu : MonoBehaviour
     private AudioSource FXPlayerAudioSource;
     private Slider musicSlider;
     private Slider FXSlider;
-
+    private bool goingMenu = false;
+    private bool goingLevels = false;
 
     void Start()
     {
@@ -38,6 +40,8 @@ public class PauseMenu : MonoBehaviour
         {
             FXPlayerAudioSource = GameObject.FindGameObjectWithTag("Player").GetComponent<AudioSource>();
         }
+
+        EstadoPorDefecto();
         FXAudioSource = GetComponent<AudioSource>();
         musicSlider = elementosUI[5].GetComponentInChildren<Slider>();
         FXSlider = elementosUI[6].GetComponentInChildren<Slider>();
@@ -100,6 +104,7 @@ public class PauseMenu : MonoBehaviour
 
     public void SelectLevel()
     {
+        goingLevels = true;
         StartCoroutine(WaitSelectLevel());
     }
 
@@ -110,6 +115,7 @@ public class PauseMenu : MonoBehaviour
 
     public void Menu()
     {
+        goingMenu = true;
         StartCoroutine(WaitMenu());
     }
     public void Back()
@@ -132,6 +138,26 @@ public class PauseMenu : MonoBehaviour
         StartCoroutine(WaitMutearFX());
     }
 
+    public void Controls()
+    {
+        StartCoroutine(WaitControls());
+    }
+
+    public void Exit()
+    {
+        StartCoroutine(WaitExit());
+    }
+
+    public void Yes()
+    {
+        StartCoroutine(WaitYes());
+    }
+
+    public void No()
+    {
+        StartCoroutine(WaitNo());
+    }
+
     IEnumerator WaitContinue()
     {
         yield return new WaitUntil(() => FXAudioSource.isPlaying == false);
@@ -141,7 +167,31 @@ public class PauseMenu : MonoBehaviour
     IEnumerator WaitSelectLevel()
     {
         yield return new WaitUntil(() => FXAudioSource.isPlaying == false);
-        ////////////////////////////////
+        if (SceneManager.GetActiveScene().name == "Testing" || SceneManager.GetActiveScene().name == "Charlie")
+        {
+            elementosUI[0].SetActive(false);
+            elementosUI[1].SetActive(false);
+            elementosUI[2].SetActive(false);
+            elementosUI[3].SetActive(false);
+            elementosUI[4].SetActive(false);
+            elementosUI[5].SetActive(false);
+            elementosUI[6].SetActive(false);
+            elementosUI[7].SetActive(false);
+            elementosUI[8].SetActive(false);
+            elementosUI[9].SetActive(false);
+            elementosUI[10].SetActive(false);
+            elementosUI[11].SetActive(false);
+            elementosUI[12].SetActive(false);
+            elementosUI[13].SetActive(false);
+            elementosUI[14].SetActive(true);
+            elementosUI[15].SetActive(true);
+            elementosUI[16].SetActive(true);
+        }
+        else if (SceneManager.GetActiveScene().name == "Menu")
+        {
+            SceneManager.LoadScene("Menu2");
+        }
+
     }
 
     IEnumerator WaitOptions()
@@ -155,24 +205,49 @@ public class PauseMenu : MonoBehaviour
         elementosUI[5].SetActive(true);
         elementosUI[6].SetActive(true);
         elementosUI[7].SetActive(true);
+        elementosUI[8].SetActive(false);
+        elementosUI[9].SetActive(false);
+        elementosUI[10].SetActive(false);
+        elementosUI[11].SetActive(false);
+        elementosUI[12].SetActive(false);
+        elementosUI[13].SetActive(false);
+        elementosUI[14].SetActive(false);
+        elementosUI[15].SetActive(false);
+        elementosUI[16].SetActive(false);
     }
     IEnumerator WaitMenu()
     {
-        yield return new WaitUntil(() => FXAudioSource.isPlaying == false);
-        /////////////////////////////////
+        yield return new WaitUntil(() => FXAudioSource.isPlaying == false);    
+        if (SceneManager.GetActiveScene().name == "Testing" || SceneManager.GetActiveScene().name == "Charlie")
+        {
+            elementosUI[0].SetActive(false);
+            elementosUI[1].SetActive(false);
+            elementosUI[2].SetActive(false);
+            elementosUI[3].SetActive(false);
+            elementosUI[4].SetActive(false);
+            elementosUI[5].SetActive(false);
+            elementosUI[6].SetActive(false);
+            elementosUI[7].SetActive(false);
+            elementosUI[8].SetActive(false);
+            elementosUI[9].SetActive(false);
+            elementosUI[10].SetActive(false);
+            elementosUI[11].SetActive(false);
+            elementosUI[12].SetActive(false);
+            elementosUI[13].SetActive(false);
+            elementosUI[14].SetActive(true);
+            elementosUI[15].SetActive(true);
+            elementosUI[16].SetActive(true);
+        }
+        else 
+        {
+            SceneManager.LoadScene("Menu");
+        }
     }
 
     IEnumerator WaitBack()
     {
         yield return new WaitUntil(() => FXAudioSource.isPlaying == false);
-        elementosUI[0].SetActive(true);
-        elementosUI[1].SetActive(true);
-        elementosUI[2].SetActive(true);
-        elementosUI[3].SetActive(true);
-        elementosUI[4].SetActive(false);
-        elementosUI[5].SetActive(false);
-        elementosUI[6].SetActive(false);
-        elementosUI[7].SetActive(false);
+        EstadoPorDefecto();
     }
 
     IEnumerator WaitFullScreen()
@@ -180,12 +255,12 @@ public class PauseMenu : MonoBehaviour
         yield return new WaitUntil(() => FXAudioSource.isPlaying == false);
         if (Screen.fullScreen)
         {
-            Screen.SetResolution(1920, 1080, true);
+            Screen.SetResolution(1920, 1080, false);
             elementosUI[4].GetComponentInChildren<Text>().text = "WINDOWED";
         }
         else
         {
-            Screen.SetResolution(1920, 1080, false);
+            Screen.SetResolution(1920, 1080, true);
             elementosUI[4].GetComponentInChildren<Text>().text = "FULL  SCREEN";
         }
     }
@@ -200,5 +275,98 @@ public class PauseMenu : MonoBehaviour
     {
         yield return new WaitUntil(() => FXAudioSource.isPlaying == false);
         _FXMuted = !_FXMuted;
+    }
+
+    IEnumerator WaitControls()
+    {
+        yield return new WaitUntil(() => FXAudioSource.isPlaying == false);
+        elementosUI[0].SetActive(false);
+        elementosUI[1].SetActive(false);
+        elementosUI[2].SetActive(false);
+        elementosUI[3].SetActive(false);
+        elementosUI[4].SetActive(false);
+        elementosUI[5].SetActive(false);
+        elementosUI[6].SetActive(false);
+        elementosUI[7].SetActive(true);
+        elementosUI[8].SetActive(false);
+        elementosUI[9].SetActive(false);
+        elementosUI[10].SetActive(true);
+        elementosUI[11].SetActive(true);
+        elementosUI[12].SetActive(true);
+        elementosUI[13].SetActive(true);
+        elementosUI[14].SetActive(false);
+        elementosUI[15].SetActive(false);
+        elementosUI[16].SetActive(false);
+    }
+
+    IEnumerator WaitExit()
+    {
+        yield return new WaitUntil(() => FXAudioSource.isPlaying == false);
+        Application.Quit();
+    }
+
+    IEnumerator WaitYes()
+    {
+        yield return new WaitUntil(() => FXAudioSource.isPlaying == false);
+        if (goingMenu)
+        {
+            goingMenu = false;
+            SceneManager.LoadScene("Menu");
+        }
+        if (goingLevels)
+        {
+            goingLevels = false;
+            SceneManager.LoadScene("Menu2");
+        }
+    }
+
+    IEnumerator WaitNo()
+    {
+        yield return new WaitUntil(() => FXAudioSource.isPlaying == false);
+        EstadoPorDefecto();
+    }
+
+    private void EstadoPorDefecto()
+    {
+        if (SceneManager.GetActiveScene().name == "Testing" || SceneManager.GetActiveScene().name == "Charlie")
+        {
+            elementosUI[0].SetActive(true);
+            elementosUI[1].SetActive(true);
+            elementosUI[2].SetActive(true);
+            elementosUI[3].SetActive(true);
+            elementosUI[4].SetActive(false);
+            elementosUI[5].SetActive(false);
+            elementosUI[6].SetActive(false);
+            elementosUI[7].SetActive(false);
+            elementosUI[8].SetActive(false);
+            elementosUI[9].SetActive(false);
+            elementosUI[10].SetActive(false);
+            elementosUI[11].SetActive(false);
+            elementosUI[12].SetActive(false);
+            elementosUI[13].SetActive(false);
+            elementosUI[14].SetActive(false);
+            elementosUI[15].SetActive(false);
+            elementosUI[16].SetActive(false);
+        }
+        else if (SceneManager.GetActiveScene().name == "Menu")
+        {
+            elementosUI[0].SetActive(false);
+            elementosUI[1].SetActive(true);
+            elementosUI[2].SetActive(true);
+            elementosUI[3].SetActive(false);
+            elementosUI[4].SetActive(false);
+            elementosUI[5].SetActive(false);
+            elementosUI[6].SetActive(false);
+            elementosUI[7].SetActive(false);
+            elementosUI[8].SetActive(true);
+            elementosUI[9].SetActive(true);
+            elementosUI[10].SetActive(false);
+            elementosUI[11].SetActive(false);
+            elementosUI[12].SetActive(false);
+            elementosUI[13].SetActive(false);
+            elementosUI[14].SetActive(false);
+            elementosUI[15].SetActive(false);
+            elementosUI[16].SetActive(false);
+        }
     }
 }

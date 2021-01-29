@@ -39,7 +39,7 @@ public class EnemyController : MonoBehaviour
             print("A");
         }
         
-        /*if (DetectLight._inLight)
+        if (DetectLight._inLight)
         {
             if (_canPlayerDetect)
             {
@@ -50,7 +50,7 @@ public class EnemyController : MonoBehaviour
         {
             ChangeDestino(_targetOrigen);
         }
-        */
+        
     }
 
     void ChangeDestino(Vector3 destino)
