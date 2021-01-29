@@ -8,8 +8,6 @@ public class AtraparPlayer : MonoBehaviour
     [SerializeField]
     GameObject _player;
     [SerializeField]
-    Transform _positionInicialPlayer;
-    [SerializeField]
     Animator _FadeInOut;
 
 
@@ -19,7 +17,7 @@ public class AtraparPlayer : MonoBehaviour
         
         yield return new WaitForSeconds(1.9f);
 
-        SceneManager.LoadScene("Testing"); 
+        SceneManager.LoadScene("Charlie"); 
 
         // yield return new WaitForSeconds(30f);
     }
