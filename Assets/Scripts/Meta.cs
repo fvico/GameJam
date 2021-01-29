@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Meta : MonoBehaviour
 {
+    [SerializeField]
     PauseMenu _pauseMenu;
 
 
