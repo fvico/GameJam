@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 
 
@@ -32,6 +33,8 @@ public class MovePlayer : MonoBehaviour
     GameObject panelPausa;
     [SerializeField]
     Timer timer;
+    [SerializeField]
+    Animator _FadeInOut;
     [SerializeField]
     LayerMask stickyLayer;
     [SerializeField]
@@ -372,6 +375,23 @@ public class MovePlayer : MonoBehaviour
             CambiarAngulo(td);
 
         }
+        if (other.gameObject.CompareTag("Respawn"))
+        {
+            StartCoroutine(ResetCoroutine());
+
+        }
+    }
+
+    IEnumerator ResetCoroutine()
+    {
+
+        timer.StopTimer();
+
+        _FadeInOut.SetBool("IsFadeIn", true);
+
+        yield return new WaitForSeconds(1.9f);
+
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
     
 
