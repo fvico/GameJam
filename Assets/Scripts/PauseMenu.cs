@@ -398,6 +398,7 @@ public class PauseMenu : MonoBehaviour
         elementosUI[15].SetActive(false);
         elementosUI[16].SetActive(false);
         elementosUI[17].SetActive(true);
+        MovePlayer._paused = true;
     }
 }
 
