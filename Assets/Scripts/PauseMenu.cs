@@ -186,6 +186,7 @@ public class PauseMenu : MonoBehaviour
             elementosUI[14].SetActive(true);
             elementosUI[15].SetActive(true);
             elementosUI[16].SetActive(true);
+            elementosUI[17].SetActive(false);
         }
         else if (SceneManager.GetActiveScene().name == "Menu")
         {
@@ -215,6 +216,7 @@ public class PauseMenu : MonoBehaviour
         elementosUI[14].SetActive(false);
         elementosUI[15].SetActive(false);
         elementosUI[16].SetActive(false);
+        elementosUI[17].SetActive(false);
     }
     IEnumerator WaitMenu()
     {
@@ -238,6 +240,7 @@ public class PauseMenu : MonoBehaviour
             elementosUI[14].SetActive(true);
             elementosUI[15].SetActive(true);
             elementosUI[16].SetActive(true);
+            elementosUI[17].SetActive(false);
         }
         else 
         {
@@ -299,6 +302,7 @@ public class PauseMenu : MonoBehaviour
         elementosUI[14].SetActive(false);
         elementosUI[15].SetActive(false);
         elementosUI[16].SetActive(false);
+        elementosUI[17].SetActive(false);
     }
 
     IEnumerator WaitExit()
@@ -350,6 +354,7 @@ public class PauseMenu : MonoBehaviour
             elementosUI[14].SetActive(false);
             elementosUI[15].SetActive(false);
             elementosUI[16].SetActive(false);
+            elementosUI[17].SetActive(false);
         }
         else if (SceneManager.GetActiveScene().name == "Menu")
         {
@@ -370,6 +375,29 @@ public class PauseMenu : MonoBehaviour
             elementosUI[14].SetActive(false);
             elementosUI[15].SetActive(false);
             elementosUI[16].SetActive(false);
+            elementosUI[17].SetActive(false);
         }
     }
+    public void Win()
+    {
+        elementosUI[0].SetActive(false);
+        elementosUI[1].SetActive(true);
+        elementosUI[2].SetActive(false);
+        elementosUI[3].SetActive(false);
+        elementosUI[4].SetActive(false);
+        elementosUI[5].SetActive(false);
+        elementosUI[6].SetActive(false);
+        elementosUI[7].SetActive(false);
+        elementosUI[8].SetActive(false);
+        elementosUI[9].SetActive(false);
+        elementosUI[10].SetActive(false);
+        elementosUI[11].SetActive(false);
+        elementosUI[12].SetActive(false);
+        elementosUI[13].SetActive(false);
+        elementosUI[14].SetActive(false);
+        elementosUI[15].SetActive(false);
+        elementosUI[16].SetActive(false);
+        elementosUI[17].SetActive(true);
+    }
 }
+
