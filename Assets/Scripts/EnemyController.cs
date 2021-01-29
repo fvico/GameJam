@@ -15,6 +15,7 @@ public class EnemyController : MonoBehaviour
     bool _canPlayerDetect;
     [SerializeField]
     Renderer _renderer;
+    bool _changePath;
 
     private void Start()
     {
@@ -28,15 +29,21 @@ public class EnemyController : MonoBehaviour
     private void Update()
     {
 
-        if(transform.position == _targetOrigen)
+        if (Vector3.Distance(transform.position, _targetDestino.position) < 1)
         {
-            ChangeDestino(_targetDestino.position);
-            print("u");
+            _changePath = true;
         }
-        else if(transform.position == _targetDestino.position)
+        else
+        {
+            _changePath = false;
+        }
+        if (_changePath)
         {
             ChangeDestino(_targetOrigen);
-            print("A");
+        }
+        else
+        {
+            ChangeDestino(_targetDestino.position);
         }
         
         if (DetectLight._inLight)
