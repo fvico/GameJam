@@ -13,6 +13,7 @@ public class MovePlayer : MonoBehaviour
     public static bool _canPlayer;
     public static bool _paused = false;
     public static float _actualLevel = 0;
+    public static bool _win;
 
     private CharacterController myCC;
     private MeshRenderer meshCube;
@@ -59,6 +60,7 @@ public class MovePlayer : MonoBehaviour
         timer.StartTimer();
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        _win = false;
     }
 
 
@@ -68,7 +70,7 @@ public class MovePlayer : MonoBehaviour
         {
                                                 //PAUSA\\
 
-            if (Input.GetKeyDown(KeyCode.Escape))
+            if (Input.GetKeyDown(KeyCode.Escape) && !_win)
             {
                 _paused = !_paused;
             }
