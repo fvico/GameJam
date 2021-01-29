@@ -12,6 +12,7 @@ TagManager:
   - PadreDeTodos
   - music
   - DestinationEnemy
+  - Win
   layers:
   - Default
   - TransparentFX
