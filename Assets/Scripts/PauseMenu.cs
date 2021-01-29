@@ -169,24 +169,33 @@ public class PauseMenu : MonoBehaviour
         yield return new WaitUntil(() => FXAudioSource.isPlaying == false);
         if (SceneManager.GetActiveScene().name == "Testing" || SceneManager.GetActiveScene().name == "Charlie")
         {
-            elementosUI[0].SetActive(false);
-            elementosUI[1].SetActive(false);
-            elementosUI[2].SetActive(false);
-            elementosUI[3].SetActive(false);
-            elementosUI[4].SetActive(false);
-            elementosUI[5].SetActive(false);
-            elementosUI[6].SetActive(false);
-            elementosUI[7].SetActive(false);
-            elementosUI[8].SetActive(false);
-            elementosUI[9].SetActive(false);
-            elementosUI[10].SetActive(false);
-            elementosUI[11].SetActive(false);
-            elementosUI[12].SetActive(false);
-            elementosUI[13].SetActive(false);
-            elementosUI[14].SetActive(true);
-            elementosUI[15].SetActive(true);
-            elementosUI[16].SetActive(true);
-            elementosUI[17].SetActive(false);
+            if (!MovePlayer._win)
+            {
+                elementosUI[0].SetActive(false);
+                elementosUI[1].SetActive(false);
+                elementosUI[2].SetActive(false);
+                elementosUI[3].SetActive(false);
+                elementosUI[4].SetActive(false);
+                elementosUI[5].SetActive(false);
+                elementosUI[6].SetActive(false);
+                elementosUI[7].SetActive(false);
+                elementosUI[8].SetActive(false);
+                elementosUI[9].SetActive(false);
+                elementosUI[10].SetActive(false);
+                elementosUI[11].SetActive(false);
+                elementosUI[12].SetActive(false);
+                elementosUI[13].SetActive(false);
+                elementosUI[14].SetActive(true);
+                elementosUI[15].SetActive(true);
+                elementosUI[16].SetActive(true);
+                elementosUI[17].SetActive(false);
+            }
+            else
+            {
+                SceneManager.LoadScene("Menu2");
+                goingLevels = false;
+                MovePlayer._paused = false;
+            }
         }
         else if (SceneManager.GetActiveScene().name == "Menu")
         {
@@ -221,7 +230,7 @@ public class PauseMenu : MonoBehaviour
     IEnumerator WaitMenu()
     {
         yield return new WaitUntil(() => FXAudioSource.isPlaying == false);    
-        if (SceneManager.GetActiveScene().name == "Testing" || SceneManager.GetActiveScene().name == "Charlie")
+        if (SceneManager.GetActiveScene().name == "Testing" || SceneManager.GetActiveScene().name == "Charlie" )
         {
             elementosUI[0].SetActive(false);
             elementosUI[1].SetActive(false);
@@ -337,24 +346,48 @@ public class PauseMenu : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().name == "Testing" || SceneManager.GetActiveScene().name == "Charlie")
         {
-            elementosUI[0].SetActive(true);
-            elementosUI[1].SetActive(true);
-            elementosUI[2].SetActive(true);
-            elementosUI[3].SetActive(true);
-            elementosUI[4].SetActive(false);
-            elementosUI[5].SetActive(false);
-            elementosUI[6].SetActive(false);
-            elementosUI[7].SetActive(false);
-            elementosUI[8].SetActive(false);
-            elementosUI[9].SetActive(false);
-            elementosUI[10].SetActive(false);
-            elementosUI[11].SetActive(false);
-            elementosUI[12].SetActive(false);
-            elementosUI[13].SetActive(false);
-            elementosUI[14].SetActive(false);
-            elementosUI[15].SetActive(false);
-            elementosUI[16].SetActive(false);
-            elementosUI[17].SetActive(false);
+            if (!MovePlayer._win)
+            {
+                elementosUI[0].SetActive(true);
+                elementosUI[1].SetActive(true);
+                elementosUI[2].SetActive(true);
+                elementosUI[3].SetActive(true);
+                elementosUI[4].SetActive(false);
+                elementosUI[5].SetActive(false);
+                elementosUI[6].SetActive(false);
+                elementosUI[7].SetActive(false);
+                elementosUI[8].SetActive(false);
+                elementosUI[9].SetActive(false);
+                elementosUI[10].SetActive(false);
+                elementosUI[11].SetActive(false);
+                elementosUI[12].SetActive(false);
+                elementosUI[13].SetActive(false);
+                elementosUI[14].SetActive(false);
+                elementosUI[15].SetActive(false);
+                elementosUI[16].SetActive(false);
+                elementosUI[17].SetActive(false);
+            }
+            else
+            {
+                elementosUI[0].SetActive(false);
+                elementosUI[1].SetActive(true);
+                elementosUI[2].SetActive(false);
+                elementosUI[3].SetActive(false);
+                elementosUI[4].SetActive(false);
+                elementosUI[5].SetActive(false);
+                elementosUI[6].SetActive(false);
+                elementosUI[7].SetActive(false);
+                elementosUI[8].SetActive(false);
+                elementosUI[9].SetActive(false);
+                elementosUI[10].SetActive(false);
+                elementosUI[11].SetActive(false);
+                elementosUI[12].SetActive(false);
+                elementosUI[13].SetActive(false);
+                elementosUI[14].SetActive(false);
+                elementosUI[15].SetActive(false);
+                elementosUI[16].SetActive(false);
+                elementosUI[17].SetActive(true);
+            }
         }
         else if (SceneManager.GetActiveScene().name == "Menu")
         {
@@ -380,24 +413,7 @@ public class PauseMenu : MonoBehaviour
     }
     public void Win()
     {
-        elementosUI[0].SetActive(false);
-        elementosUI[1].SetActive(true);
-        elementosUI[2].SetActive(false);
-        elementosUI[3].SetActive(false);
-        elementosUI[4].SetActive(false);
-        elementosUI[5].SetActive(false);
-        elementosUI[6].SetActive(false);
-        elementosUI[7].SetActive(false);
-        elementosUI[8].SetActive(false);
-        elementosUI[9].SetActive(false);
-        elementosUI[10].SetActive(false);
-        elementosUI[11].SetActive(false);
-        elementosUI[12].SetActive(false);
-        elementosUI[13].SetActive(false);
-        elementosUI[14].SetActive(false);
-        elementosUI[15].SetActive(false);
-        elementosUI[16].SetActive(false);
-        elementosUI[17].SetActive(true);
+        EstadoPorDefecto();
         MovePlayer._paused = true;
     }
 }

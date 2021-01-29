@@ -61,6 +61,7 @@ public class MovePlayer : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         _win = false;
+        panelPausa.SetActive(false);
     }
 
 
