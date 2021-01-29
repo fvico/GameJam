@@ -17,7 +17,7 @@ public class AtraparPlayer : MonoBehaviour
         
         yield return new WaitForSeconds(1.9f);
 
-        SceneManager.LoadScene("Charlie"); 
+        SceneManager.LoadScene("Testing"); 
 
         // yield return new WaitForSeconds(30f);
     }
