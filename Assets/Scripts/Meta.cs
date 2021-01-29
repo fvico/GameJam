@@ -13,6 +13,7 @@ public class Meta : MonoBehaviour
         if(other.tag == "Player")
         {
             _pauseMenu.Win();
+            MovePlayer._win = true;
         }
     }
 }
