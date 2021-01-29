@@ -190,6 +190,7 @@ public class PauseMenu : MonoBehaviour
         else if (SceneManager.GetActiveScene().name == "Menu")
         {
             SceneManager.LoadScene("Menu2");
+            goingLevels = false;
         }
 
     }
@@ -241,6 +242,7 @@ public class PauseMenu : MonoBehaviour
         else 
         {
             SceneManager.LoadScene("Menu");
+            goingMenu = false;
         }
     }
 
@@ -317,6 +319,7 @@ public class PauseMenu : MonoBehaviour
         {
             goingLevels = false;
             SceneManager.LoadScene("Menu2");
+            MenuNiveles._fadeIn = true;
         }
     }
 

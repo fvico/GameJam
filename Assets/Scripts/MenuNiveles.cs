@@ -5,8 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class MenuNiveles : MonoBehaviour
 {
+    public static bool _fadeIn = false;
 
     private AudioSource FXAudioSource;
+
+    [SerializeField]
+    Animator _FadeInOut;
 
     void Start()
     {
@@ -60,12 +64,15 @@ public class MenuNiveles : MonoBehaviour
     IEnumerator WaitMenu()
     {
         yield return new WaitUntil(() => FXAudioSource.isPlaying == false);
+        StartCoroutine(Fade());
         SceneManager.LoadScene("Menu");
+
     }
 
     IEnumerator WaitLevel1()
     {
         yield return new WaitUntil(() => FXAudioSource.isPlaying == false);
+        StartCoroutine(Fade());
         PlayerPrefs.SetInt("LevelToLoad", 1);
         SceneManager.LoadScene("Testing");
     }
@@ -73,25 +80,38 @@ public class MenuNiveles : MonoBehaviour
     IEnumerator WaitLevel2()
     {
         yield return new WaitUntil(() => FXAudioSource.isPlaying == false);
+        StartCoroutine(Fade());
         PlayerPrefs.SetInt("LevelToLoad", 2);
         SceneManager.LoadScene("Testing");
     }
     IEnumerator WaitLevel3()
     {
         yield return new WaitUntil(() => FXAudioSource.isPlaying == false);
+        StartCoroutine(Fade());
         PlayerPrefs.SetInt("LevelToLoad", 3);
         SceneManager.LoadScene("Testing");
     }
     IEnumerator WaitLevel4()
     {
         yield return new WaitUntil(() => FXAudioSource.isPlaying == false);
+        StartCoroutine(Fade());
         PlayerPrefs.SetInt("LevelToLoad", 4);
         SceneManager.LoadScene("Testing");
     }
     IEnumerator WaitLevel5()
     {
         yield return new WaitUntil(() => FXAudioSource.isPlaying == false);
+        StartCoroutine(Fade());
         PlayerPrefs.SetInt("LevelToLoad", 5);
         SceneManager.LoadScene("Testing");
+    }
+
+    IEnumerator Fade()
+    {
+
+        _FadeInOut.SetBool("IsFadeIn", false);
+
+        yield return new WaitForSeconds(1.9f);
+
     }
 }

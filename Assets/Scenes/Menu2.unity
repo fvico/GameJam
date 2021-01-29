@@ -214,6 +214,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 857419051100116110, guid: 1e2a83fd2779d9746a61b90074cd75c3,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 7f5368f6afa9ed649b6fe421557d27ea, type: 2}
     - target: {fileID: 857419051100116111, guid: 1e2a83fd2779d9746a61b90074cd75c3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -321,6 +326,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1e2a83fd2779d9746a61b90074cd75c3, type: 3}
+--- !u!95 &68230824 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 857419051100116110, guid: 1e2a83fd2779d9746a61b90074cd75c3,
+    type: 3}
+  m_PrefabInstance: {fileID: 68230823}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &102395932
 GameObject:
   m_ObjectHideFlags: 0
@@ -2655,3 +2666,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f61feb23d407134c88c3f2718ab5990, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _FadeInOut: {fileID: 68230824}
