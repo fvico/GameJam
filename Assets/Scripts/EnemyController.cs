@@ -16,6 +16,14 @@ public class EnemyController : MonoBehaviour
     [SerializeField]
     Renderer _renderer;
 
+    private void Awake()
+    {
+        if(_targetPlayer == null)
+        {
+            _targetPlayer = FindObjectOfType<MovePlayer>().transform;
+        }
+    }
+
     private void Start()
     {
         _renderer.material.SetColor("_Color", new Color(1f, 1f, 1f));

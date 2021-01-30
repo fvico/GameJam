@@ -99,7 +99,7 @@ LightmapSettings:
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 112000000, guid: 718a12b179bbf5c4f86d79927aa0c767,
     type: 2}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -522,6 +522,16 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1942681503357978231, guid: 2c84fa75fff51464ca3eda60bbed4830,
+        type: 3}
+      propertyPath: _isLightMenu
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5693398137321198260, guid: 2c84fa75fff51464ca3eda60bbed4830,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2c84fa75fff51464ca3eda60bbed4830, type: 3}
 --- !u!1 &508696845 stripped
@@ -622,6 +632,16 @@ PrefabInstance:
       value: Spot Light
       objectReference: {fileID: 0}
     - target: {fileID: 1942681503357978231, guid: 2c84fa75fff51464ca3eda60bbed4830,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1942681503357978231, guid: 2c84fa75fff51464ca3eda60bbed4830,
+        type: 3}
+      propertyPath: _isLightMenu
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5693398137321198260, guid: 2c84fa75fff51464ca3eda60bbed4830,
         type: 3}
       propertyPath: m_Enabled
       value: 0

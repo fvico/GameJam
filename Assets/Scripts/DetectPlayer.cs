@@ -2,12 +2,30 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class DetectPlayer : MonoBehaviour
 {
     [SerializeField]
     GameObject _player;
     [SerializeField]
     LayerMask _layerPlayer;
+    [Header("Solo activar si es la luz del menu")]
+    [SerializeField]
+    bool _isLightMenu;
+    private void Awake()
+    {
+        if(_player == null)
+        {
+            if (_isLightMenu)
+            {
+
+            }
+            else
+            {
+                _player = FindObjectOfType<DetectLight>().gameObject;
+            }
+        }
+    }
 
     void Update()
     {

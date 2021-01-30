@@ -74,7 +74,7 @@ public class MenuNiveles : MonoBehaviour
         yield return new WaitUntil(() => FXAudioSource.isPlaying == false);
         StartCoroutine(Fade());
         PlayerPrefs.SetInt("LevelToLoad", 1);
-        SceneManager.LoadScene("Testing");
+        SceneManager.LoadScene("Charlie");
     }
 
     IEnumerator WaitLevel2()
@@ -82,28 +82,28 @@ public class MenuNiveles : MonoBehaviour
         yield return new WaitUntil(() => FXAudioSource.isPlaying == false);
         StartCoroutine(Fade());
         PlayerPrefs.SetInt("LevelToLoad", 2);
-        SceneManager.LoadScene("Testing");
+        SceneManager.LoadScene("Charlie");
     }
     IEnumerator WaitLevel3()
     {
         yield return new WaitUntil(() => FXAudioSource.isPlaying == false);
         StartCoroutine(Fade());
         PlayerPrefs.SetInt("LevelToLoad", 3);
-        SceneManager.LoadScene("Testing");
+        SceneManager.LoadScene("Charlie");
     }
     IEnumerator WaitLevel4()
     {
         yield return new WaitUntil(() => FXAudioSource.isPlaying == false);
         StartCoroutine(Fade());
         PlayerPrefs.SetInt("LevelToLoad", 4);
-        SceneManager.LoadScene("Testing");
+        SceneManager.LoadScene("Charlie");
     }
     IEnumerator WaitLevel5()
     {
         yield return new WaitUntil(() => FXAudioSource.isPlaying == false);
         StartCoroutine(Fade());
         PlayerPrefs.SetInt("LevelToLoad", 5);
-        SceneManager.LoadScene("Testing");
+        SceneManager.LoadScene("Charlie");
     }
 
     IEnumerator Fade()

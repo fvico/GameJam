@@ -11,13 +11,23 @@ public class AtraparPlayer : MonoBehaviour
     Animator _FadeInOut;
 
 
+
+    private void Awake()
+    {
+        if (_player == null)
+        {
+            _player = FindObjectOfType<MovePlayer>().gameObject;
+        }
+        print(SceneManager.sceneCount);
+    }
+
     IEnumerator ReinicioNivel()
     {
         _FadeInOut.SetBool("IsFadeIn", true);
         
         yield return new WaitForSeconds(1.9f);
 
-        SceneManager.LoadScene("Testing"); 
+        SceneManager.LoadScene(SceneManager.sceneCount); 
 
         // yield return new WaitForSeconds(30f);
     }
@@ -25,7 +35,7 @@ public class AtraparPlayer : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            print("Cchoque");
+
             StartCoroutine(ReinicioNivel());
             MovePlayer._canPlayer = false;
         }
