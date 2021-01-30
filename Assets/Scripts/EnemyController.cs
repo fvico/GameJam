@@ -15,6 +15,8 @@ public class EnemyController : MonoBehaviour
     bool _canPlayerDetect;
     [SerializeField]
     Renderer _renderer;
+    [SerializeField]
+    bool luzPerseguidora;
 
     private void Awake()
     {
@@ -35,30 +37,36 @@ public class EnemyController : MonoBehaviour
 
     private void Update()
     {
-/*
-        if(transform.position == _targetOrigen)
+        /*
+                if(transform.position == _targetOrigen)
+                {
+                    ChangeDestino(_targetDestino.position);
+                    print("u");
+                }
+                else if(transform.position == _targetDestino.position)
+                {
+                    ChangeDestino(_targetOrigen);
+                    print("A");
+                }
+                */
+        if (!luzPerseguidora)
         {
-            ChangeDestino(_targetDestino.position);
-            print("u");
-        }
-        else if(transform.position == _targetDestino.position)
-        {
-            ChangeDestino(_targetOrigen);
-            print("A");
-        }
-        */
-        if (DetectLight._inLight)
-        {
-            if (_canPlayerDetect)
+            if (DetectLight._inLight)
             {
-                ChangeDestino(_targetPlayer.position);
+                if (_canPlayerDetect)
+                {
+                    ChangeDestino(_targetPlayer.position);
+                }
+            }
+            else
+            {
+                ChangeDestino(_targetOrigen);
             }
         }
         else
         {
-            ChangeDestino(_targetOrigen);
+            ChangeDestino(_targetPlayer.position);
         }
-        
     }
 
     void ChangeDestino(Vector3 destino)

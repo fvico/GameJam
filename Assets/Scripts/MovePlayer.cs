@@ -49,7 +49,6 @@ public class MovePlayer : MonoBehaviour
 
 
 
-
     private void Start()
     {
         SetLevel(PlayerPrefs.GetInt("LevelToLoad"));
@@ -62,6 +61,7 @@ public class MovePlayer : MonoBehaviour
         Cursor.visible = false;
         _win = false;
         panelPausa.SetActive(false);
+
     }
 
 

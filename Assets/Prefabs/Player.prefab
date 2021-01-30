@@ -90,8 +90,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 194508531}
-  m_LocalRotation: {x: -0.07381627, y: -0.0064491946, z: -0.08679739, w: 0.9934666}
-  m_LocalPosition: {x: 0, y: -0.35355377, z: 7.424621}
+  m_LocalRotation: {x: -0.07381633, y: -0.006449187, z: -0.0867972, w: 0.9934666}
+  m_LocalPosition: {x: 0, y: -0.3535533, z: 7.424621}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2015387819}
@@ -195,7 +195,7 @@ MonoBehaviour:
   m_Lens:
     FieldOfView: 40
     OrthographicSize: 10
-    NearClipPlane: 0.1
+    NearClipPlane: 5
     FarClipPlane: 5000
     Dutch: 0
     LensShift: {x: 0, y: 0}
@@ -231,8 +231,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 424245655}
-  m_LocalRotation: {x: -0.045313835, y: 0.00024270767, z: 0.0053508873, w: 0.9989585}
-  m_LocalPosition: {x: 0, y: -0.35355377, z: 7.424621}
+  m_LocalRotation: {x: -0.045313835, y: 0.00024273386, z: 0.0053508785, w: 0.99895847}
+  m_LocalPosition: {x: 0, y: -0.3535533, z: 7.424621}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 710316028}
@@ -336,7 +336,7 @@ MonoBehaviour:
   m_Lens:
     FieldOfView: 40
     OrthographicSize: 10
-    NearClipPlane: 0.1
+    NearClipPlane: 5
     FarClipPlane: 5000
     Dutch: 0
     LensShift: {x: 0, y: 0}
@@ -754,8 +754,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1502817719}
-  m_LocalRotation: {x: -0.102507144, y: -0.0050070044, z: -0.048529454, w: 0.9935352}
-  m_LocalPosition: {x: 0, y: -0.35355377, z: 7.424621}
+  m_LocalRotation: {x: -0.102507204, y: -0.005006957, z: -0.04852943, w: 0.99353516}
+  m_LocalPosition: {x: 0, y: -0.3535533, z: 7.424621}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 653405934}
@@ -925,7 +925,7 @@ MonoBehaviour:
   m_Lens:
     FieldOfView: 40
     OrthographicSize: 10
-    NearClipPlane: 0.1
+    NearClipPlane: 5
     FarClipPlane: 5000
     Dutch: 0
     LensShift: {x: 0, y: 0}
@@ -1087,7 +1087,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2101744915}
   m_LocalRotation: {x: 0.38268343, y: -0, z: -0, w: 0.92387956}
-  m_LocalPosition: {x: 0, y: 8, z: -8}
+  m_LocalPosition: {x: 0, y: 7.9999995, z: -8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1571739507}
@@ -1117,7 +1117,7 @@ MonoBehaviour:
   m_Lens:
     FieldOfView: 40
     OrthographicSize: 10
-    NearClipPlane: 0.1
+    NearClipPlane: 5
     FarClipPlane: 5000
     Dutch: 0
     LensShift: {x: 0, y: 0}
@@ -6172,12 +6172,13 @@ MonoBehaviour:
   - {fileID: 2002720874}
   panelPausa: {fileID: 0}
   timer: {fileID: 0}
+  _FadeInOut: {fileID: 0}
   stickyLayer:
     serializedVersion: 2
     m_Bits: 1024
   verticalSpeed: 6
   verticalGravity: 3
-  verticalFreeFallingGravity: 6
+  verticalFreeFallingGravity: 20
   turnSmoothTime: 0.1
 --- !u!114 &7847096795982084791
 MonoBehaviour:
@@ -6230,7 +6231,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 858a479c9a13dc8419e0ce09e0e595c2, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -6324,17 +6325,17 @@ AudioReverbZone:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7847096795982084750}
   m_Enabled: 1
-  m_MinDistance: 12
-  m_MaxDistance: 12
-  m_ReverbPreset: 26
+  m_MinDistance: 30
+  m_MaxDistance: 60
+  m_ReverbPreset: 23
   m_Room: -1000
-  m_RoomHF: -151
-  m_DecayTime: 7.56
-  m_DecayHFRatio: 0.91
-  m_Reflections: -626
-  m_ReflectionsDelay: 0.02
-  m_Reverb: 774
-  m_ReverbDelay: 0.03
+  m_RoomHF: -4000
+  m_DecayTime: 1.49
+  m_DecayHFRatio: 0.1
+  m_Reflections: -449
+  m_ReflectionsDelay: 0.007
+  m_Reverb: 1700
+  m_ReverbDelay: 0.011
   m_HFReference: 5000
   m_Diffusion: 100
   m_Density: 100
@@ -6349,20 +6350,20 @@ AudioReverbFilter:
   m_GameObject: {fileID: 7847096795982084750}
   m_Enabled: 1
   m_DryLevel: -95
-  m_Room: -379
-  m_RoomHF: -253
-  m_DecayTime: 19.5
-  m_DecayHFRatio: 2
-  m_ReflectionsLevel: 1000
-  m_ReverbLevel: 1555
-  m_ReverbDelay: 0.1
+  m_Room: -1000
+  m_RoomHF: 0
+  m_DecayTime: 2.91
+  m_DecayHFRatio: 1.3
+  m_ReflectionsLevel: -602
+  m_ReverbLevel: -302
+  m_ReverbDelay: 0.022
   m_Diffusion: 100
-  m_Density: 99.4
-  m_HFReference: 19288
-  m_RoomLF: -632
-  m_LFReference: 965
+  m_Density: 100
+  m_HFReference: 5000
+  m_RoomLF: 0
+  m_LFReference: 250
   m_ReflectionsDelay: 0.3
-  m_ReverbPreset: 27
+  m_ReverbPreset: 9
 --- !u!1 &7847096796528370612
 GameObject:
   m_ObjectHideFlags: 0
@@ -6392,7 +6393,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7847096796528370612}
   m_LocalRotation: {x: 0.38268343, y: -0, z: -0, w: 0.92387956}
-  m_LocalPosition: {x: 0, y: 8, z: -8}
+  m_LocalPosition: {x: 0, y: 7.9999995, z: -8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 424245656}
@@ -6410,8 +6411,8 @@ Camera:
   m_GameObject: {fileID: 7847096796528370612}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0.066037714, g: 0.066037714, b: 0.066037714, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -6424,7 +6425,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.1
+  near clip plane: 5
   far clip plane: 5000
   field of view: 40
   orthographic: 0
@@ -6600,8 +6601,8 @@ MonoBehaviour:
   m_WorldUpOverride: {fileID: 0}
   m_UpdateMethod: 2
   m_DefaultBlend:
-    m_Style: 4
-    m_Time: 3
+    m_Style: 1
+    m_Time: 1
     m_CustomCurve:
       serializedVersion: 2
       m_Curve: []
@@ -6731,7 +6732,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 92da77d9f48f2a149b51217029764d80,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -2.91
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 92da77d9f48f2a149b51217029764d80,
         type: 3}

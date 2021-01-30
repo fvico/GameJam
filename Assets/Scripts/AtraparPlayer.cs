@@ -18,7 +18,7 @@ public class AtraparPlayer : MonoBehaviour
         {
             _player = FindObjectOfType<MovePlayer>().gameObject;
         }
-        print(SceneManager.sceneCount);
+        //print(SceneManager.sceneCount);
     }
 
     IEnumerator ReinicioNivel()
