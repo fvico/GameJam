@@ -6,6 +6,8 @@ public class MoveLight : MonoBehaviour
 {
     [SerializeField]
     bool _isMoving;
+    [SerializeField]
+    float parcheSpeed;
     float _speed;
     Vector3 _origen;
     [SerializeField]
@@ -29,7 +31,7 @@ public class MoveLight : MonoBehaviour
     {
         if(_isMoving)
         {
-            _speed = 1;
+            _speed = parcheSpeed;
         }
         else
         {

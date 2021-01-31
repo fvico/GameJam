@@ -10,6 +10,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField]
     Transform _targetPlayer;
     Vector3 _targetOrigen;
+    Vector3 _targetActual;
     [SerializeField]
     Transform _targetDestino;
     bool _canPlayerDetect;
@@ -17,6 +18,8 @@ public class EnemyController : MonoBehaviour
     Renderer _renderer;
     [SerializeField]
     bool luzPerseguidora;
+    [SerializeField]
+    bool enemyPatrol;
 
     private void Awake()
     {
@@ -31,8 +34,8 @@ public class EnemyController : MonoBehaviour
         _renderer.material.SetColor("_Color", new Color(1f, 1f, 1f));
         _canPlayerDetect = false;
         _targetOrigen = transform.position;
-        //ChangeDestino(_targetDestino.position);
-       
+        _targetActual = _targetDestino.position;
+
     }
 
     private void Update()
@@ -49,18 +52,51 @@ public class EnemyController : MonoBehaviour
                     print("A");
                 }
                 */
+
         if (!luzPerseguidora)
         {
-            if (DetectLight._inLight)
+            if (!enemyPatrol)
             {
-                if (_canPlayerDetect)
+
+                if (DetectLight._inLight)
                 {
-                    ChangeDestino(_targetPlayer.position);
+                    if (_canPlayerDetect)
+                    {
+                        ChangeDestino(_targetPlayer.position);
+                    }
+                }
+                else
+                {
+                    ChangeDestino(_targetActual);
                 }
             }
             else
             {
-                ChangeDestino(_targetOrigen);
+                if (DetectLight._inLight)
+                {
+                    if (_canPlayerDetect)
+                    {
+                        ChangeDestino(_targetPlayer.position);
+                    }
+                }
+                else
+                {
+                    /*if (transform.position.x == _targetOrigen.x && transform.position.z == _targetOrigen.z)
+                    {
+                        _targetActual = _targetDestino.position;
+                        print("ENTRO " + transform.position);
+                        print("STATE " + _navMeshAgent.isStopped);
+                    }
+                    else if (transform.position.x == _targetDestino.position.x && transform.position.z == _targetDestino.position.z)
+                    {
+                        _targetActual = _targetOrigen;
+                        //ChangeDestino(_targetOrigen);
+                        print("hola");
+                        
+                    }*/
+
+                    ChangeDestino(_targetActual);
+                }
             }
         }
         else
@@ -82,8 +118,14 @@ public class EnemyController : MonoBehaviour
         }
         if (other.tag == "DestinationEnemy")
         {
-         
+            _targetActual = _targetOrigen;
             ChangeDestino(_targetOrigen);
+        }
+
+        if (other.tag == "OrigenEnemy")
+        {
+            _targetActual = _targetDestino.position;
+            ChangeDestino(_targetDestino.position);
         }
     }
     private void OnTriggerExit(Collider other)

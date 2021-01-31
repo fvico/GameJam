@@ -13,6 +13,7 @@ TagManager:
   - music
   - DestinationEnemy
   - Win
+  - OrigenEnemy
   layers:
   - Default
   - TransparentFX
