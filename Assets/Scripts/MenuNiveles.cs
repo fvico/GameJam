@@ -6,17 +6,21 @@ using UnityEngine.SceneManagement;
 public class MenuNiveles : MonoBehaviour
 {
     public static bool _fadeIn = false;
+    public static int _nivelesSuperados = 0;
 
     private AudioSource FXAudioSource;
 
     [SerializeField]
     Animator _FadeInOut;
+    [SerializeField]
+    GameObject[] niveles;
 
     void Start()
     {
         FXAudioSource = GetComponent<AudioSource>();
         FXAudioSource.mute = PauseMenu._FXMuted;
         FXAudioSource.volume = PauseMenu._volumenFX;
+        ActualizarInterfaz();
     }
 
     public void Menu()
@@ -113,5 +117,17 @@ public class MenuNiveles : MonoBehaviour
 
         yield return new WaitForSeconds(1.9f);
 
+    }
+
+    public void ActualizarInterfaz()
+    {
+        foreach(GameObject g in niveles) {
+            g.SetActive(false);
+        }
+
+        for(int i = 0; i< _nivelesSuperados+1; i++)
+        {
+            niveles[i].SetActive(true);
+        }
     }
 }
