@@ -94,3 +94,4 @@ MonoBehaviour:
   tiempo: 60
   _FadeInOut: {fileID: 0}
   timerText: {fileID: 7179632466984747487}
+  audioMuerte: {fileID: 8300000, guid: 7d97ae8ec02aff34fa04d85958679ab7, type: 3}

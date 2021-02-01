@@ -212,7 +212,7 @@ PrefabInstance:
     - target: {fileID: 857419051100116108, guid: 1e2a83fd2779d9746a61b90074cd75c3,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 857419051100116110, guid: 1e2a83fd2779d9746a61b90074cd75c3,
         type: 3}
@@ -326,6 +326,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1e2a83fd2779d9746a61b90074cd75c3, type: 3}
+--- !u!95 &100020297 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 857419051100116110, guid: 1e2a83fd2779d9746a61b90074cd75c3,
+    type: 3}
+  m_PrefabInstance: {fileID: 68230823}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &259597115
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -333,6 +339,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2044124709}
     m_Modifications:
+    - target: {fileID: 6854803182491296994, guid: 0cb1e6bb27bf5e641a3bff1af9a1aa7d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6854803183205345896, guid: 0cb1e6bb27bf5e641a3bff1af9a1aa7d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -443,6 +454,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PausePanel
       objectReference: {fileID: 0}
+    - target: {fileID: 6854803183205345903, guid: 0cb1e6bb27bf5e641a3bff1af9a1aa7d,
+        type: 3}
+      propertyPath: _FadeInOut
+      value: 
+      objectReference: {fileID: 100020297}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0cb1e6bb27bf5e641a3bff1af9a1aa7d, type: 3}
 --- !u!1001 &280884103

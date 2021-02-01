@@ -24,6 +24,8 @@ public class PauseMenu : MonoBehaviour
     Sprite iconoUnmuted;
     [SerializeField]
     bool noPlayer;
+    [SerializeField]
+    Animator _FadeInOut;
 
     private AudioSource musicAudioSource;
     private AudioSource FXAudioSource;
@@ -153,7 +155,43 @@ public class PauseMenu : MonoBehaviour
     public void SelectLevel()
     {
         goingLevels = true;
-        StartCoroutine(WaitSelectLevel());
+        if (SceneManager.GetActiveScene().name == "Testing" || SceneManager.GetActiveScene().name == "Charlie")
+        {
+            if (!MovePlayer._win)
+            {
+                elementosUI[0].SetActive(false);
+                elementosUI[1].SetActive(false);
+                elementosUI[2].SetActive(false);
+                elementosUI[3].SetActive(false);
+                elementosUI[4].SetActive(false);
+                elementosUI[5].SetActive(false);
+                elementosUI[6].SetActive(false);
+                elementosUI[7].SetActive(false);
+                elementosUI[8].SetActive(false);
+                elementosUI[9].SetActive(false);
+                elementosUI[10].SetActive(false);
+                elementosUI[11].SetActive(false);
+                elementosUI[12].SetActive(false);
+                elementosUI[13].SetActive(false);
+                elementosUI[14].SetActive(true);
+                elementosUI[15].SetActive(true);
+                elementosUI[16].SetActive(true);
+                elementosUI[17].SetActive(false);
+            }
+            else
+            {
+                _FadeInOut.SetTrigger("IsFadeIn");
+                StartCoroutine(WaitSelectLevel());
+            }
+        }
+
+        if (SceneManager.GetActiveScene().name == "Menu")
+        {
+            _FadeInOut.SetTrigger("IsFadeIn");
+            StartCoroutine(WaitSelectLevel());
+        }
+
+            
     }
 
     public void Options()
@@ -214,40 +252,23 @@ public class PauseMenu : MonoBehaviour
 
     IEnumerator WaitSelectLevel()
     {
-        yield return new WaitUntil(() => FXAudioSource.isPlaying == false);
+        //yield return new WaitUntil(() => FXAudioSource.isPlaying == false);
         if (SceneManager.GetActiveScene().name == "Testing" || SceneManager.GetActiveScene().name == "Charlie")
         {
-            if (!MovePlayer._win)
-            {
-                elementosUI[0].SetActive(false);
-                elementosUI[1].SetActive(false);
-                elementosUI[2].SetActive(false);
-                elementosUI[3].SetActive(false);
-                elementosUI[4].SetActive(false);
-                elementosUI[5].SetActive(false);
-                elementosUI[6].SetActive(false);
-                elementosUI[7].SetActive(false);
-                elementosUI[8].SetActive(false);
-                elementosUI[9].SetActive(false);
-                elementosUI[10].SetActive(false);
-                elementosUI[11].SetActive(false);
-                elementosUI[12].SetActive(false);
-                elementosUI[13].SetActive(false);
-                elementosUI[14].SetActive(true);
-                elementosUI[15].SetActive(true);
-                elementosUI[16].SetActive(true);
-                elementosUI[17].SetActive(false);
-            }
-            else
-            {
-                SceneManager.LoadScene("Menu2");
-                goingLevels = false;
-                MovePlayer._paused = false;
-            }
-        }
-        else if (SceneManager.GetActiveScene().name == "Menu")
-        {
+    
+
+            goingLevels = false;
+            MovePlayer._paused = false;
+            yield return new WaitForSeconds(3f);
             SceneManager.LoadScene("Menu2");
+
+        }
+        
+        if (SceneManager.GetActiveScene().name == "Menu")
+        {
+
+            SceneManager.LoadScene("Menu2");
+            yield return new WaitForSeconds(3f);
             goingLevels = false;
         }
 
@@ -371,16 +392,18 @@ public class PauseMenu : MonoBehaviour
     IEnumerator WaitYes()
     {
         yield return new WaitUntil(() => FXAudioSource.isPlaying == false);
+        
         if (goingMenu)
         {
+            print("Hola1");
             goingMenu = false;
             SceneManager.LoadScene("Menu");
         }
         if (goingLevels)
         {
+            print("Hola");
             goingLevels = false;
             SceneManager.LoadScene("Menu2");
-            MenuNiveles._fadeIn = true;
         }
     }
 

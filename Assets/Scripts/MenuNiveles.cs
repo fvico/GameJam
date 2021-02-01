@@ -17,6 +17,7 @@ public class MenuNiveles : MonoBehaviour
 
     void Start()
     {
+        Time.timeScale = 1f;
         FXAudioSource = GetComponent<AudioSource>();
         FXAudioSource.mute = PauseMenu._FXMuted;
         FXAudioSource.volume = PauseMenu._volumenFX;
@@ -27,11 +28,13 @@ public class MenuNiveles : MonoBehaviour
 
     public void Menu()
     {
+        _FadeInOut.SetTrigger("IsFadeIn");
         StartCoroutine(WaitMenu());
     }
 
     public void Level1()
     {
+        _FadeInOut.SetTrigger("IsFadeIn");
         MovePlayer._actualLevel = 1;
         StartCoroutine(WaitLevel1());
 
@@ -39,6 +42,7 @@ public class MenuNiveles : MonoBehaviour
 
     public void Level2()
     {
+        _FadeInOut.SetTrigger("IsFadeIn");
         MovePlayer._actualLevel = 2;
         StartCoroutine(WaitLevel2());
 
@@ -46,6 +50,7 @@ public class MenuNiveles : MonoBehaviour
 
     public void Level3()
     {
+        _FadeInOut.SetTrigger("IsFadeIn");
         MovePlayer._actualLevel = 3;
         StartCoroutine(WaitLevel3());
 
@@ -53,6 +58,7 @@ public class MenuNiveles : MonoBehaviour
 
     public void Level4()
     {
+        _FadeInOut.SetTrigger("IsFadeIn");
         MovePlayer._actualLevel = 4;
         StartCoroutine(WaitLevel4());
 
@@ -60,6 +66,7 @@ public class MenuNiveles : MonoBehaviour
 
     public void Level5()
     {
+        _FadeInOut.SetTrigger("IsFadeIn");
         MovePlayer._actualLevel = 5;
         StartCoroutine(WaitLevel5());
 
@@ -69,57 +76,59 @@ public class MenuNiveles : MonoBehaviour
 
     IEnumerator WaitMenu()
     {
-        yield return new WaitUntil(() => FXAudioSource.isPlaying == false);
-        StartCoroutine(Fade());
+        yield return new WaitForSeconds(3f);
+        //yield return new WaitUntil(() => FXAudioSource.isPlaying == false);
+
         SceneManager.LoadScene("Menu");
 
     }
 
     IEnumerator WaitLevel1()
     {
-        yield return new WaitUntil(() => FXAudioSource.isPlaying == false);
-        StartCoroutine(Fade());
+        yield return new WaitForSeconds(3f);
+        //yield return new WaitUntil(() => FXAudioSource.isPlaying == false);
+
         PlayerPrefs.SetInt("LevelToLoad", 1);
         SceneManager.LoadScene("Charlie");
     }
 
     IEnumerator WaitLevel2()
     {
-        yield return new WaitUntil(() => FXAudioSource.isPlaying == false);
-        StartCoroutine(Fade());
+        yield return new WaitForSeconds(3f);
+        //yield return new WaitUntil(() => FXAudioSource.isPlaying == false);
+
         PlayerPrefs.SetInt("LevelToLoad", 2);
         SceneManager.LoadScene("Charlie");
     }
     IEnumerator WaitLevel3()
     {
-        yield return new WaitUntil(() => FXAudioSource.isPlaying == false);
-        StartCoroutine(Fade());
+
+        yield return new WaitForSeconds(3f);
+        //yield return new WaitUntil(() => FXAudioSource.isPlaying == false);
+
         PlayerPrefs.SetInt("LevelToLoad", 3);
         SceneManager.LoadScene("Charlie");
     }
     IEnumerator WaitLevel4()
     {
-        yield return new WaitUntil(() => FXAudioSource.isPlaying == false);
-        StartCoroutine(Fade());
+
+        yield return new WaitForSeconds(3f);
+        //yield return new WaitUntil(() => FXAudioSource.isPlaying == false);
+
         PlayerPrefs.SetInt("LevelToLoad", 4);
         SceneManager.LoadScene("Charlie");
     }
     IEnumerator WaitLevel5()
     {
-        yield return new WaitUntil(() => FXAudioSource.isPlaying == false);
-        StartCoroutine(Fade());
+
+        yield return new WaitForSeconds(3f);
+        //yield return new WaitUntil(() => FXAudioSource.isPlaying == false);
+
         PlayerPrefs.SetInt("LevelToLoad", 5);
         SceneManager.LoadScene("Charlie");
     }
 
-    IEnumerator Fade()
-    {
 
-        _FadeInOut.SetBool("IsFadeIn", false);
-
-        yield return new WaitForSeconds(1.9f);
-
-    }
 
     public void ActualizarInterfaz()
     {

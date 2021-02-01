@@ -15,6 +15,7 @@ public class MovePlayer : MonoBehaviour
     public static float _actualLevel = 0;
     public static bool _win; 
     public static AudioSource emisor;
+    public static bool reseteando = false;
 
     private CharacterController myCC;
     private MeshRenderer meshCube;
@@ -23,6 +24,7 @@ public class MovePlayer : MonoBehaviour
     private float turnSmoothVelocity;
     private bool subiendoFrontalmente = false;
     private bool subiendoLaterlamente = false;
+
     
 
 
@@ -70,6 +72,7 @@ public class MovePlayer : MonoBehaviour
         panelPausa.GetComponent<PauseMenu>().AjustarValores();
         panelPausa.SetActive(false);
         emisor = GetComponent<AudioSource>();
+        reseteando = false;
         emisor.loop = true;
         emisor.clip = audioAndar;
         emisor.Play();
@@ -80,17 +83,20 @@ public class MovePlayer : MonoBehaviour
 
     private void Update()
     {
-        if (DetectLight._inLight)
+        if (!reseteando)
         {
-            emisor.loop = false;
-            emisor.Pause();
-        }
-        else
-        {
-            if (!emisor.isPlaying)
+            if (DetectLight._inLight)
             {
-                emisor.loop = true;
-                emisor.UnPause();
+                emisor.loop = false;
+                emisor.Pause();
+            }
+            else
+            {
+                if (!emisor.isPlaying)
+                {
+                    emisor.loop = true;
+                    emisor.UnPause();
+                }
             }
         }
 
@@ -245,16 +251,22 @@ public class MovePlayer : MonoBehaviour
                 if (direccion.magnitude >= 0.1f)  //Se aplica el movimiento tras calcularlo
                 {
                     myCC.Move(direccion.normalized * _speed * Time.deltaTime);
-                    if (!emisor.isPlaying)
+                    if (!reseteando)
                     {
-                        emisor.loop = true;
-                        emisor.UnPause();
+                        if (!emisor.isPlaying)
+                        {
+                            emisor.loop = true;
+                            emisor.UnPause();
+                        }
                     }
                 }
                 else
                 {
-                    emisor.loop = false;
-                    emisor.Pause();
+                    if (!reseteando)
+                    {
+                        emisor.loop = false;
+                        emisor.Pause();
+                    }
                 }
 
 
@@ -417,7 +429,7 @@ public class MovePlayer : MonoBehaviour
         }
         if (other.gameObject.CompareTag("Respawn"))
         {
-
+            _FadeInOut.SetTrigger("IsFadeIn");
             StartCoroutine(ResetCoroutine());
 
         }
@@ -425,14 +437,14 @@ public class MovePlayer : MonoBehaviour
 
     IEnumerator ResetCoroutine()
     {
-        _FadeInOut.SetBool("IsFadeIn", true);
+
+        reseteando = true;
         emisor.Stop();
         emisor.mute = false;
         emisor.loop = false;
         emisor.PlayOneShot(audioMuerte);
 
         timer.StopTimer();
-        //_FadeInOut.GetComponent<Animator>().
 
 
         yield return new WaitForSeconds(3f);

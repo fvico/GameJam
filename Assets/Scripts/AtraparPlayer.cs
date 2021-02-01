@@ -23,22 +23,26 @@ public class AtraparPlayer : MonoBehaviour
 
     IEnumerator ReinicioNivel()
     {
-        MovePlayer._canPlayer = false;
-        MovePlayer.emisor.mute = false;
-        MovePlayer.emisor.loop = false;
-        MovePlayer.emisor.PlayOneShot(audioMuerte);
+        if (!MovePlayer.reseteando)
+        {
+            MovePlayer.reseteando = true;
+            MovePlayer._canPlayer = false;
+            MovePlayer.emisor.mute = false;
+            MovePlayer.emisor.loop = false;
+            MovePlayer.emisor.PlayOneShot(audioMuerte);
 
-        _FadeInOut.SetBool("IsFadeIn", true);
-        
-        yield return new WaitForSeconds(3f);
+ 
 
-        SceneManager.LoadScene(SceneManager.sceneCount); 
+            yield return new WaitForSeconds(3f);
+
+            SceneManager.LoadScene(SceneManager.sceneCount);
+        }
     }
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
         {
-
+            _FadeInOut.SetTrigger("IsFadeIn");
             StartCoroutine(ReinicioNivel());
 
         }

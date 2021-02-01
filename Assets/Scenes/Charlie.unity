@@ -99,7 +99,7 @@ LightmapSettings:
     m_LightProbeSampleCountMultiplier: 2
   m_LightingDataAsset: {fileID: 112000000, guid: 22fd68ce4cfc0c24284c88df90f44bec,
     type: 2}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -14740,6 +14740,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1e2a83fd2779d9746a61b90074cd75c3, type: 3}
+--- !u!95 &525577574 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 857419051100116110, guid: 1e2a83fd2779d9746a61b90074cd75c3,
+    type: 3}
+  m_PrefabInstance: {fileID: 525577573}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &529565724
 GameObject:
   m_ObjectHideFlags: 0
@@ -28361,12 +28367,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1063148531}
   m_Mesh: {fileID: -8366183600774674403, guid: 0a55799b09cc2e342bab03646990e960, type: 3}
---- !u!95 &1063805578 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 857419051100116110, guid: 1e2a83fd2779d9746a61b90074cd75c3,
-    type: 3}
-  m_PrefabInstance: {fileID: 525577573}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1064710355
 GameObject:
   m_ObjectHideFlags: 0
@@ -64491,6 +64491,11 @@ PrefabInstance:
       propertyPath: noPlayer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6854803183205345903, guid: 0cb1e6bb27bf5e641a3bff1af9a1aa7d,
+        type: 3}
+      propertyPath: _FadeInOut
+      value: 
+      objectReference: {fileID: 525577574}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0cb1e6bb27bf5e641a3bff1af9a1aa7d, type: 3}
 --- !u!64 &6866368521034462108
@@ -65629,15 +65634,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 424245656, guid: c9ab0813eeebe334fb2fe59ce794d4c9, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.0002427086
+      value: 0.00024273363
       objectReference: {fileID: 0}
     - target: {fileID: 424245656, guid: c9ab0813eeebe334fb2fe59ce794d4c9, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0053509013
+      value: 0.0053508785
       objectReference: {fileID: 0}
     - target: {fileID: 424245656, guid: c9ab0813eeebe334fb2fe59ce794d4c9, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.99895847
+      value: 0.9989585
       objectReference: {fileID: 0}
     - target: {fileID: 424245656, guid: c9ab0813eeebe334fb2fe59ce794d4c9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -65653,19 +65658,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1502817720, guid: c9ab0813eeebe334fb2fe59ce794d4c9, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.102507204
+      value: -0.102507144
       objectReference: {fileID: 0}
     - target: {fileID: 1502817720, guid: c9ab0813eeebe334fb2fe59ce794d4c9, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.005006957
+      value: -0.0050070025
       objectReference: {fileID: 0}
     - target: {fileID: 1502817720, guid: c9ab0813eeebe334fb2fe59ce794d4c9, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.04852943
+      value: -0.0485294
       objectReference: {fileID: 0}
     - target: {fileID: 1502817720, guid: c9ab0813eeebe334fb2fe59ce794d4c9, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.99353516
+      value: 0.9935352
       objectReference: {fileID: 0}
     - target: {fileID: 1502817720, guid: c9ab0813eeebe334fb2fe59ce794d4c9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -65707,7 +65712,7 @@ PrefabInstance:
         type: 3}
       propertyPath: _FadeInOut
       value: 
-      objectReference: {fileID: 1063805578}
+      objectReference: {fileID: 1940922936}
     - target: {fileID: 7847096795982084786, guid: c9ab0813eeebe334fb2fe59ce794d4c9,
         type: 3}
       propertyPath: m_LocalPosition.x

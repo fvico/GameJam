@@ -13,6 +13,8 @@ public class Timer : MonoBehaviour
     Animator _FadeInOut;
     [SerializeField]
     Text timerText;
+    [SerializeField]
+    AudioClip audioMuerte;
 
     private int s;
 
@@ -35,6 +37,7 @@ public class Timer : MonoBehaviour
         WriteTimer(s);
         if (s == 0)
         {
+            _FadeInOut.SetTrigger("IsFadeIn");
             StartCoroutine(ReinicioNivel());
             return;
         }
@@ -57,10 +60,19 @@ public class Timer : MonoBehaviour
     {
         StopTimer();
 
-        _FadeInOut.SetBool("IsFadeIn", true);
+        if (!MovePlayer.reseteando)
+        {
+            MovePlayer.reseteando = true;
+            MovePlayer._canPlayer = false;
+            MovePlayer.emisor.mute = false;
+            MovePlayer.emisor.loop = false;
+            MovePlayer.emisor.PlayOneShot(audioMuerte);
 
-        yield return new WaitForSeconds(1.9f);
 
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
+            yield return new WaitForSeconds(3f);
+
+            SceneManager.LoadScene(SceneManager.sceneCount);
+        }
     }
 }
