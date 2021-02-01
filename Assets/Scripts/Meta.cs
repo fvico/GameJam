@@ -22,6 +22,7 @@ public class Meta : MonoBehaviour
             if (MovePlayer._actualLevel >= MenuNiveles._nivelesSuperados)
             {
                 MenuNiveles._nivelesSuperados++;
+                PlayerPrefs.SetInt("NivelesSuperados", MenuNiveles._nivelesSuperados);
             }
             emisor.Play();
             MovePlayer._win = true;

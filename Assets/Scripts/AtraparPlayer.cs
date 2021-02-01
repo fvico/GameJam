@@ -24,6 +24,8 @@ public class AtraparPlayer : MonoBehaviour
     IEnumerator ReinicioNivel()
     {
         MovePlayer._canPlayer = false;
+        MovePlayer.emisor.mute = false;
+        MovePlayer.emisor.loop = false;
         MovePlayer.emisor.PlayOneShot(audioMuerte);
 
         _FadeInOut.SetBool("IsFadeIn", true);

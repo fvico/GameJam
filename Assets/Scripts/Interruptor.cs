@@ -47,7 +47,6 @@ public class Interruptor : MonoBehaviour
             _switch[i].SetActive(false);
             _meshOff.SetActive(true);
             _meshOn.SetActive(false);
-            _isActive = false;
             emisor.PlayOneShot(audioActivarBoton);
         }
         yield return new WaitForSeconds(_time);
@@ -56,7 +55,6 @@ public class Interruptor : MonoBehaviour
             _switch[i].SetActive(true);
             _meshOff.SetActive(false);
             _meshOn.SetActive(true);
-            _isActive = true;
             emisor.PlayOneShot(audioDesactivarBoton);
         }
     }
@@ -66,8 +64,7 @@ public class Interruptor : MonoBehaviour
 
         if (other.tag == "Player")
         {
-            if (_isActive)
-            {
+
                 
                 if (_isTime)
                 {
@@ -83,7 +80,6 @@ public class Interruptor : MonoBehaviour
                         }
                         _meshOff.SetActive(true);
                         _meshOn.SetActive(false);
-                        _isActive = false;
                         emisor.PlayOneShot(audioActivarBoton);
                     }
                 }
@@ -107,7 +103,7 @@ public class Interruptor : MonoBehaviour
 
                     }
                 }
-            }
+            
         }
     }
 }

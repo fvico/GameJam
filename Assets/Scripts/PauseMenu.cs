@@ -7,8 +7,8 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
 
-    public static float _volumenMusica = 1f;
-    public static float _volumenFX = 0.6f;
+    public static float _volumenMusica = 0.4f;
+    public static float _volumenFX = 0.2f;
     public static bool _musicaMuted = false;
     public static bool _FXMuted = false;
 
@@ -36,6 +36,16 @@ public class PauseMenu : MonoBehaviour
 
     void Start()
     {
+        InicializarPanel();
+    }
+
+    void Update()
+    {
+        AjustarValores();
+    }
+
+    public void InicializarPanel()
+    {
         musicAudioSource = GameObject.FindGameObjectWithTag("music").GetComponent<AudioSource>();
         if (!noPlayer)
         {
@@ -43,8 +53,8 @@ public class PauseMenu : MonoBehaviour
         }
 
         GameObject[] temp = GameObject.FindGameObjectsWithTag("Interruptor");
-        
-        foreach(GameObject g in temp)
+
+        foreach (GameObject g in temp)
         {
             audioSourcesExtras.Add(g.GetComponent<AudioSource>());
         }
@@ -68,8 +78,10 @@ public class PauseMenu : MonoBehaviour
         musicSlider = elementosUI[5].GetComponentInChildren<Slider>();
         FXSlider = elementosUI[6].GetComponentInChildren<Slider>();
     }
+        
 
-    void Update()
+
+    public void AjustarValores()
     {
         musicSlider.value = _volumenMusica;
         FXSlider.value = _volumenFX;
@@ -82,7 +94,7 @@ public class PauseMenu : MonoBehaviour
             }
             FXAudioSource.mute = true;
 
-            foreach(AudioSource aSource in audioSourcesExtras)
+            foreach (AudioSource aSource in audioSourcesExtras)
             {
                 aSource.mute = true;
             }
@@ -95,7 +107,7 @@ public class PauseMenu : MonoBehaviour
             if (!noPlayer)
             {
                 FXPlayerAudioSource.mute = false;
-                FXPlayerAudioSource.volume = _volumenFX;
+                FXPlayerAudioSource.volume = _volumenFX + 0.4f;
             }
             FXAudioSource.mute = false;
             FXAudioSource.volume = _volumenFX;

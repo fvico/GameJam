@@ -66,14 +66,34 @@ public class MovePlayer : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         _win = false;
+        panelPausa.GetComponent<PauseMenu>().InicializarPanel();
+        panelPausa.GetComponent<PauseMenu>().AjustarValores();
         panelPausa.SetActive(false);
         emisor = GetComponent<AudioSource>();
+        emisor.loop = true;
+        emisor.clip = audioAndar;
+        emisor.Play();
+        //emisor.PlayOneShot(audioAndar);
 
     }
 
 
     private void Update()
     {
+        if (DetectLight._inLight)
+        {
+            emisor.loop = false;
+            emisor.Pause();
+        }
+        else
+        {
+            if (!emisor.isPlaying)
+            {
+                emisor.loop = true;
+                emisor.UnPause();
+            }
+        }
+
         if (_canPlayer)
         {
                                                 //PAUSA\\
@@ -96,6 +116,8 @@ public class MovePlayer : MonoBehaviour
                 Cursor.visible = false;
                 Time.timeScale = 1;
                 panelPausa.SetActive(false);
+
+
 
                                                 //MOVIMIENTO\\
 
@@ -223,6 +245,16 @@ public class MovePlayer : MonoBehaviour
                 if (direccion.magnitude >= 0.1f)  //Se aplica el movimiento tras calcularlo
                 {
                     myCC.Move(direccion.normalized * _speed * Time.deltaTime);
+                    if (!emisor.isPlaying)
+                    {
+                        emisor.loop = true;
+                        emisor.UnPause();
+                    }
+                }
+                else
+                {
+                    emisor.loop = false;
+                    emisor.Pause();
                 }
 
 
@@ -394,6 +426,9 @@ public class MovePlayer : MonoBehaviour
     IEnumerator ResetCoroutine()
     {
         _FadeInOut.SetBool("IsFadeIn", true);
+        emisor.Stop();
+        emisor.mute = false;
+        emisor.loop = false;
         emisor.PlayOneShot(audioMuerte);
 
         timer.StopTimer();
