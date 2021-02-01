@@ -180,14 +180,14 @@ public class PauseMenu : MonoBehaviour
             }
             else
             {
-                _FadeInOut.SetTrigger("IsFadeIn");
+
                 StartCoroutine(WaitSelectLevel());
             }
         }
 
         if (SceneManager.GetActiveScene().name == "Menu")
         {
-            _FadeInOut.SetTrigger("IsFadeIn");
+
             StartCoroutine(WaitSelectLevel());
         }
 
@@ -252,15 +252,16 @@ public class PauseMenu : MonoBehaviour
 
     IEnumerator WaitSelectLevel()
     {
-        //yield return new WaitUntil(() => FXAudioSource.isPlaying == false);
+        yield return new WaitUntil(() => FXAudioSource.isPlaying == false);
         if (SceneManager.GetActiveScene().name == "Testing" || SceneManager.GetActiveScene().name == "Charlie")
         {
-    
 
+
+
+            SceneManager.LoadScene("Menu2");
             goingLevels = false;
             MovePlayer._paused = false;
-            yield return new WaitForSeconds(3f);
-            SceneManager.LoadScene("Menu2");
+
 
         }
         
@@ -268,7 +269,7 @@ public class PauseMenu : MonoBehaviour
         {
 
             SceneManager.LoadScene("Menu2");
-            yield return new WaitForSeconds(3f);
+
             goingLevels = false;
         }
 
