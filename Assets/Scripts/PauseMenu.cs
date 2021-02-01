@@ -28,6 +28,7 @@ public class PauseMenu : MonoBehaviour
     private AudioSource musicAudioSource;
     private AudioSource FXAudioSource;
     private AudioSource FXPlayerAudioSource;
+    private List<AudioSource> audioSourcesExtras = new List<AudioSource>();
     private Slider musicSlider;
     private Slider FXSlider;
     private bool goingMenu = false;
@@ -39,6 +40,27 @@ public class PauseMenu : MonoBehaviour
         if (!noPlayer)
         {
             FXPlayerAudioSource = GameObject.FindGameObjectWithTag("Player").GetComponent<AudioSource>();
+        }
+
+        GameObject[] temp = GameObject.FindGameObjectsWithTag("Interruptor");
+        
+        foreach(GameObject g in temp)
+        {
+            audioSourcesExtras.Add(g.GetComponent<AudioSource>());
+        }
+
+        temp = GameObject.FindGameObjectsWithTag("Win");
+
+        foreach (GameObject g in temp)
+        {
+            audioSourcesExtras.Add(g.GetComponent<AudioSource>());
+        }
+
+        temp = GameObject.FindGameObjectsWithTag("Enemy");
+
+        foreach (GameObject g in temp)
+        {
+            audioSourcesExtras.Add(g.GetComponent<AudioSource>());
         }
 
         EstadoPorDefecto();
@@ -59,6 +81,13 @@ public class PauseMenu : MonoBehaviour
                 FXPlayerAudioSource.mute = true;
             }
             FXAudioSource.mute = true;
+
+            foreach(AudioSource aSource in audioSourcesExtras)
+            {
+                aSource.mute = true;
+            }
+
+
             muteButtonFX.gameObject.GetComponent<Image>().sprite = iconoMuted;
         }
         else
@@ -70,6 +99,13 @@ public class PauseMenu : MonoBehaviour
             }
             FXAudioSource.mute = false;
             FXAudioSource.volume = _volumenFX;
+
+            foreach (AudioSource aSource in audioSourcesExtras)
+            {
+                aSource.mute = false;
+                aSource.volume = _volumenFX;
+            }
+
             muteButtonFX.gameObject.GetComponent<Image>().sprite = iconoUnmuted;
         }
 

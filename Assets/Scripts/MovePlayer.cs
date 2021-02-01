@@ -13,10 +13,12 @@ public class MovePlayer : MonoBehaviour
     public static bool _canPlayer;
     public static bool _paused = false;
     public static float _actualLevel = 0;
-    public static bool _win;
+    public static bool _win; 
+    public static AudioSource emisor;
 
     private CharacterController myCC;
     private MeshRenderer meshCube;
+
     private float alturaMax = 100f;
     private float turnSmoothVelocity;
     private bool subiendoFrontalmente = false;
@@ -36,6 +38,10 @@ public class MovePlayer : MonoBehaviour
     Timer timer;
     [SerializeField]
     Animator _FadeInOut;
+    [SerializeField]
+    AudioClip audioMuerte;
+    [SerializeField]
+    AudioClip audioAndar;
     [SerializeField]
     LayerMask stickyLayer;
     [SerializeField]
@@ -61,6 +67,7 @@ public class MovePlayer : MonoBehaviour
         Cursor.visible = false;
         _win = false;
         panelPausa.SetActive(false);
+        emisor = GetComponent<AudioSource>();
 
     }
 
@@ -358,8 +365,6 @@ public class MovePlayer : MonoBehaviour
                 }
                 else
                 {
-                    //meshCube.transform.rotation = Quaternion.AngleAxis(-145f, Vector3.right);                   //Rotacion por defecto del mesh
-                    //meshParticles.transform.rotation = Quaternion.AngleAxis(-90f, Vector3.right);               //Rotacion por defecto del sistema de particulas
                     myCC.Move(Vector3.down * verticalFreeFallingGravity * Time.deltaTime);
                     subiendoFrontalmente = false;
                     subiendoLaterlamente = false;
@@ -380,6 +385,7 @@ public class MovePlayer : MonoBehaviour
         }
         if (other.gameObject.CompareTag("Respawn"))
         {
+
             StartCoroutine(ResetCoroutine());
 
         }
@@ -387,12 +393,14 @@ public class MovePlayer : MonoBehaviour
 
     IEnumerator ResetCoroutine()
     {
+        _FadeInOut.SetBool("IsFadeIn", true);
+        emisor.PlayOneShot(audioMuerte);
 
         timer.StopTimer();
+        //_FadeInOut.GetComponent<Animator>().
 
-        _FadeInOut.SetBool("IsFadeIn", true);
 
-        yield return new WaitForSeconds(1.9f);
+        yield return new WaitForSeconds(3f);
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
@@ -590,4 +598,6 @@ public class MovePlayer : MonoBehaviour
             padreDeTodos.transform.GetChild(level).gameObject.SetActive(true);
         }
     }
+
+
 }

@@ -9,7 +9,8 @@ public class AtraparPlayer : MonoBehaviour
     GameObject _player;
     [SerializeField]
     Animator _FadeInOut;
-
+    [SerializeField]
+    AudioClip audioMuerte;
 
 
     private void Awake()
@@ -18,18 +19,18 @@ public class AtraparPlayer : MonoBehaviour
         {
             _player = FindObjectOfType<MovePlayer>().gameObject;
         }
-        //print(SceneManager.sceneCount);
     }
 
     IEnumerator ReinicioNivel()
     {
+        MovePlayer._canPlayer = false;
+        MovePlayer.emisor.PlayOneShot(audioMuerte);
+
         _FadeInOut.SetBool("IsFadeIn", true);
         
-        yield return new WaitForSeconds(1.9f);
+        yield return new WaitForSeconds(3f);
 
         SceneManager.LoadScene(SceneManager.sceneCount); 
-
-        // yield return new WaitForSeconds(30f);
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -37,7 +38,7 @@ public class AtraparPlayer : MonoBehaviour
         {
 
             StartCoroutine(ReinicioNivel());
-            MovePlayer._canPlayer = false;
+
         }
     }
 }

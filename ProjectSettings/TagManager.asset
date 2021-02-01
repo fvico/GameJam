@@ -14,6 +14,7 @@ TagManager:
   - DestinationEnemy
   - Win
   - OrigenEnemy
+  - Interruptor
   layers:
   - Default
   - TransparentFX

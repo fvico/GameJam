@@ -21,6 +21,9 @@ public class EnemyController : MonoBehaviour
     [SerializeField]
     bool enemyPatrol;
 
+    AudioSource emisor;
+    bool alertaEmitida = false;
+
     private void Awake()
     {
         if(_targetPlayer == null)
@@ -35,23 +38,13 @@ public class EnemyController : MonoBehaviour
         _canPlayerDetect = false;
         _targetOrigen = transform.position;
         _targetActual = _targetDestino.position;
+        emisor = GetComponent<AudioSource>();
 
     }
 
     private void Update()
     {
-        /*
-                if(transform.position == _targetOrigen)
-                {
-                    ChangeDestino(_targetDestino.position);
-                    print("u");
-                }
-                else if(transform.position == _targetDestino.position)
-                {
-                    ChangeDestino(_targetOrigen);
-                    print("A");
-                }
-                */
+
 
         if (!luzPerseguidora)
         {
@@ -62,11 +55,18 @@ public class EnemyController : MonoBehaviour
                 {
                     if (_canPlayerDetect)
                     {
+                        if (!alertaEmitida)
+                        {
+                            emisor.Play();
+                            alertaEmitida = true;
+                        }
+                        
                         ChangeDestino(_targetPlayer.position);
                     }
                 }
                 else
                 {
+                    alertaEmitida = false;
                     ChangeDestino(_targetActual);
                 }
             }
@@ -76,25 +76,17 @@ public class EnemyController : MonoBehaviour
                 {
                     if (_canPlayerDetect)
                     {
+                        if (!alertaEmitida)
+                        {
+                            emisor.Play();
+                            alertaEmitida = true;
+                        }
                         ChangeDestino(_targetPlayer.position);
                     }
                 }
                 else
                 {
-                    /*if (transform.position.x == _targetOrigen.x && transform.position.z == _targetOrigen.z)
-                    {
-                        _targetActual = _targetDestino.position;
-                        print("ENTRO " + transform.position);
-                        print("STATE " + _navMeshAgent.isStopped);
-                    }
-                    else if (transform.position.x == _targetDestino.position.x && transform.position.z == _targetDestino.position.z)
-                    {
-                        _targetActual = _targetOrigen;
-                        //ChangeDestino(_targetOrigen);
-                        print("hola");
-                        
-                    }*/
-
+                    alertaEmitida = false;
                     ChangeDestino(_targetActual);
                 }
             }
@@ -103,6 +95,11 @@ public class EnemyController : MonoBehaviour
         {
             if (_canPlayerDetect)
             {
+                if (!alertaEmitida)
+                {
+                    emisor.Play();
+                    alertaEmitida = true;
+                }
                 ChangeDestino(_targetPlayer.position);
             }
         }
@@ -138,5 +135,6 @@ public class EnemyController : MonoBehaviour
             _canPlayerDetect = false;
         }
     }
+
 
 }

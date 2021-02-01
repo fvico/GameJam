@@ -20,6 +20,7 @@ public class MenuNiveles : MonoBehaviour
         FXAudioSource = GetComponent<AudioSource>();
         FXAudioSource.mute = PauseMenu._FXMuted;
         FXAudioSource.volume = PauseMenu._volumenFX;
+        _nivelesSuperados = PlayerPrefs.GetInt("NivelesSuperados", _nivelesSuperados);
         ActualizarInterfaz();
     }
 
@@ -129,5 +130,6 @@ public class MenuNiveles : MonoBehaviour
         {
             niveles[i].SetActive(true);
         }
+        PlayerPrefs.SetInt("NivelesSuperados", _nivelesSuperados);
     }
 }
