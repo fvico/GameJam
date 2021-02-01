@@ -69,16 +69,14 @@ public class Interruptor : MonoBehaviour
                     _meshOn.SetActive(false);
                 }
             }
-            //if() //Meter el cuarto tipo
 
             if (_haveMoreSwitch)
             {
-                print(_isActive);
+                
                 if (_isActive)
                 {
                     _isActive = false;
                     _currentNumSwitchToActivate++;
-                    print(_currentNumSwitchToActivate);
                 }
                 if(_currentNumSwitchToActivate >= _numSwitchToActivate)
                 {

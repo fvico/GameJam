@@ -101,7 +101,10 @@ public class EnemyController : MonoBehaviour
         }
         else
         {
-            ChangeDestino(_targetPlayer.position);
+            if (_canPlayerDetect)
+            {
+                ChangeDestino(_targetPlayer.position);
+            }
         }
     }
 
