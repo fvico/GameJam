@@ -257,20 +257,20 @@ public class PauseMenu : MonoBehaviour
         {
 
 
-
-            SceneManager.LoadScene("Menu2");
             goingLevels = false;
             MovePlayer._paused = false;
+            SceneManager.LoadScene("Menu2");
+
 
 
         }
         
         if (SceneManager.GetActiveScene().name == "Menu")
         {
-
+            goingLevels = false;
             SceneManager.LoadScene("Menu2");
 
-            goingLevels = false;
+
         }
 
     }
